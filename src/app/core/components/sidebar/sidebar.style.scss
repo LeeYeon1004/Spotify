@@ -1,0 +1,60 @@
+.sidebar {
+  li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 8px 24px;
+    transition: color linear 0.15s;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+.create-box {
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity linear 0.15s;
+  .create-icon {
+    border-radius: 2px;
+    margin-right: 16px;
+    color: #000;
+    background-color: #fff;
+    padding: 6px;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+.liked-box {
+  opacity: 0.7;
+  transition: opacity linear 0.15s;
+  .liked-icon {
+    background: linear-gradient(135deg, #450af5, #c4efd9);
+    border-radius: 2px;
+    padding: 6px;
+    margin-right: 16px;
+    transition: opacity linear 0.15s;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+.separate {
+  width: 100%;
+  height: 1px;
+  padding: 0 24px;
+  margin-top: 8px;
+  p {
+    width: 100%;
+    height: 1px;
+    background-color: #282828;
+  }
+}
+.install {
+  opacity: 0.7;
+  transition: opacity linear 0.15s;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+}

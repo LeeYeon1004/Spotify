@@ -1,13 +1,46 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl,
+    CircularSp-Grek, CircularSp-Deva, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl,
+    CircularSp-Grek, CircularSp-Deva, sans-serif;
+  src: url("./app/assets/font/CircularSp-Bold-fe1cfc14b7498b187c78fa72fb72d148.woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl,
+    CircularSp-Grek, CircularSp-Deva, sans-serif;
+  src: url("./app/assets/font/CircularSp-Book-4eaffdf96f4c6f984686e93d5d9cb325.woff2");
+  font-weight: 500;
+}
+@font-face {
+  font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl,
+    CircularSp-Grek, CircularSp-Deva, sans-serif;
+  src: url("./app/assets/font/CircularSpTitle-Black-3f9afb402080d53345ca1850226ca724.woff2");
+  font-weight: 500;
+}
+@font-face {
+  font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl,
+    CircularSp-Grek, CircularSp-Deva, sans-serif;
+  src: url("./app/assets/font/CircularSpTitle-Bold-2fbf72b606d7f0b0f771ea4956a8b4d6.woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl,
+    CircularSp-Grek, CircularSp-Deva, sans-serif;
+  src: url("./app/assets/font/CircularSpTitle-Tall-Bold-69995af8079e90f1d15130df13ad0c60.woff2");
+  font-weight: 700;
 }
