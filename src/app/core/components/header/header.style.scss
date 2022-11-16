@@ -1,0 +1,24 @@
+.header-box {
+  height: 64px;
+  width: 100%;
+  font-size: 14px;
+  color: #fff;
+  padding: 16px 32px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .upgrade-btn {
+    border-radius: 92px;
+    border: 1px solid #727272;
+    line-height: 30px;
+    padding: 0 15px;
+  }
+  .user-btn {
+    border-radius: 92px;
+  }
+  button {
+    background-color: #000000b3;
+  }
+}

@@ -5,16 +5,17 @@ import {
   InstallIcon,
   LibraryIcon,
   LikedIcon,
+  Logo,
   SearchIcon,
-} from "../../icons/iconsSidebar";
-import { Logo } from "../../icons/logoSidebar";
+} from "../../icons/sidebar.icons";
+
 import "./sidebar.style.scss";
 
 function Sidebar() {
   return (
     <div className="sidebar max-w-[241px] w-full max-h-screen h-full fixed bg-black">
       <div className="relative text-[14px] text-[#b3b3b3] text-left font-bold w-full">
-        <Link to="/">
+        <Link to="/home">
           <div className="pt-[24px] pl-[24px] pb-[8px]">
             <Logo />
           </div>
@@ -22,13 +23,13 @@ function Sidebar() {
         {/* -------- */}
         <div className="mt-[18px]">
           <ul>
-            <Link to="/">
+            <Link to="/home">
               <li>
                 <HomeIcon />
                 <p>Home</p>
               </li>
             </Link>
-            <Link to="/">
+            <Link to="/search">
               <li>
                 <SearchIcon />
                 <p>Search</p>
@@ -56,9 +57,9 @@ function Sidebar() {
             </div>
             Liked Song
           </button>
-          <p className="separate">
+          <div className="separate">
             <p></p>
-          </p>
+          </div>
         </div>
         {/* -------- */}
         <div className="install flex items-center fixed bottom-0 px-[24px] py-[8px] text-[#fff]">

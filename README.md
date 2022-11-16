@@ -56,3 +56,9 @@ yarn add @reduxjs/toolkit
 ```ts
 yarn add node-sass
 ```
+
+### 5. axios
+
+```ts
+yarn add axios
+```

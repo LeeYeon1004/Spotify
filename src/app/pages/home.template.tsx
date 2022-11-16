@@ -1,4 +1,5 @@
-import Content from "../core/components/content/content.template";
+import { Outlet } from "react-router-dom";
+import Header from "../core/components/header/header.template";
 import Sidebar from "../core/components/sidebar/sidebar.template";
 
 function HomePage() {
@@ -7,8 +8,11 @@ function HomePage() {
       <div>
         <Sidebar />
       </div>
-      <div className="w-full">
-        <Content />
+      <div className="w-full pl-[241px]">
+        <div className="header">
+          <Header />
+        </div>
+        <Outlet />
       </div>
     </div>
   );
