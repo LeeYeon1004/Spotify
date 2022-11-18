@@ -8,8 +8,8 @@ function HomePage() {
       <div>
         <Sidebar />
       </div>
-      <div className="w-full pl-[241px]">
-        <div className="header">
+      <div className="flex-1 pl-[241px]">
+        <div className="sticky top-0">
           <Header />
         </div>
         <Outlet />
