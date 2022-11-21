@@ -1,7 +1,7 @@
 import "./App.css";
-import HomePage from "./app/pages/home.template";
+import HomePage from "./app/pages/homePage.template";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import MainHome from "./app/core/components/home-main/mainHome.template";
+import Home from "./app/core/components/home/home.template";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<HomePage />}>
-            <Route path="/home" element={<MainHome />} />
+            <Route path="/home" element={<Home />} />
           </Route>
         </Routes>
       </div>
