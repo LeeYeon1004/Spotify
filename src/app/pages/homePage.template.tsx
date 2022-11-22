@@ -8,10 +8,11 @@ function HomePage() {
       <div>
         <Sidebar />
       </div>
-      <div className="flex-1 pl-[241px]">
-        <div className="sticky top-0">
+      <div className="flex-1 pl-[241px] relative">
+        <div className="sticky top-0 z-[3]">
           <Header />
         </div>
+        <div className="modal"></div>
         <Outlet />
       </div>
     </div>

@@ -7,6 +7,18 @@ function MainHome() {
       <div>
         <Trending />
       </div>
+      <div>
+        <Trending />
+      </div>
+      <div>
+        <Trending />
+      </div>
+      <div>
+        <Trending />
+      </div>
+      <div>
+        <Trending />
+      </div>
     </div>
   );
 }
