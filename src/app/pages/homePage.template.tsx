@@ -4,11 +4,11 @@ import Sidebar from "../core/components/sidebar/sidebar.template";
 
 function HomePage() {
   return (
-    <div className="flex w-full">
+    <div className="flex w-full relative">
       <div>
         <Sidebar />
       </div>
-      <div className="flex-1 pl-[241px] relative">
+      <div className="pl-[241px] relative">
         <div className="sticky top-0 z-[3]">
           <Header />
         </div>

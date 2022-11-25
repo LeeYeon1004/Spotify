@@ -13,7 +13,7 @@ import "./sidebar.style.scss";
 
 function Sidebar() {
   return (
-    <div className="sidebar max-w-[241px] w-full max-h-screen h-full fixed bg-black">
+    <div className="sidebar max-w-[241px] w-full max-h-screen h-full fixed z-[2] bg-black">
       <div className="relative text-[14px] text-[#b3b3b3] text-left font-bold w-full">
         <Link to="/home">
           <div className="pt-[24px] pl-[24px] pb-[8px]">
