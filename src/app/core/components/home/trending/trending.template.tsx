@@ -16,7 +16,7 @@ function Trending() {
     setAudios(getVid.slice(0, 8));
   };
   return (
-    <section className="trending mb-[16px]">
+    <section className="trending mb-[16px] relative">
       <div className="flex items-center justify-between mb-[16px]">
         <h2 className="text-[#fff] text-[24px] font-bold tracking-[-1px] cursor-pointer hover:underline">
           Trending Now

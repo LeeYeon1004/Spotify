@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   BackIcon,
   ForwardIcon,
@@ -7,8 +8,20 @@ import {
 import "./header.style.scss";
 
 function Header() {
+  const [navColor, setNavColor] = useState("transparent");
+  const listenScroll = () => {
+    window.scrollY > 10 ? setNavColor("#121212") : setNavColor("transparent");
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenScroll);
+    return () => {
+      window.removeEventListener("scroll", listenScroll);
+    };
+  }, []);
+
   return (
-    <div className="header-box bg-[#121212]">
+    <div className={`header-box bg-[${navColor}]`}>
       <div className="flex items-center gap-[16px]">
         <button className="relative bg-[#000000b3] rounded-[50%] p-[4px]">
           <BackIcon />
