@@ -8,9 +8,11 @@ import {
 import "./header.style.scss";
 
 function Header() {
-  const [navColor, setNavColor] = useState("transparent");
+  const [navColor, setNavColor] = useState("bg-[transparent]");
   const listenScroll = () => {
-    window.scrollY > 10 ? setNavColor("#121212") : setNavColor("transparent");
+    window.scrollY > 10
+      ? setNavColor("bg-[#121212]")
+      : setNavColor("transparent");
   };
 
   useEffect(() => {
@@ -21,7 +23,7 @@ function Header() {
   }, []);
 
   return (
-    <div className={`header-box bg-[${navColor}]`}>
+    <div className={`header-box ${navColor}`}>
       <div className="flex items-center gap-[16px]">
         <button className="relative bg-[#000000b3] rounded-[50%] p-[4px]">
           <BackIcon />
