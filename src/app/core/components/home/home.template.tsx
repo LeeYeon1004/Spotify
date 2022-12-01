@@ -1,23 +1,23 @@
-import Trending from "./trending/trending.template";
+import Section from "./sections/sections.template";
 import "./home.style.scss";
 
 function MainHome() {
   return (
     <div className="main-box">
       <div>
-        <Trending />
+        <Section />
       </div>
       <div>
-        <Trending />
+        <Section />
       </div>
       <div>
-        <Trending />
+        <Section />
       </div>
       <div>
-        <Trending />
+        <Section />
       </div>
       <div>
-        <Trending />
+        <Section />
       </div>
     </div>
   );

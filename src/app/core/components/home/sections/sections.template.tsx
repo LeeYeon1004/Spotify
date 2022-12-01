@@ -4,17 +4,22 @@ import { getAudios } from "../../../../api/api.axios";
 import { Audios } from "../../../models/home.interface";
 import Item from "../item/item.template";
 
-function Trending() {
+function Section() {
   const [audios, setAudios] = useState<Audios[]>([]);
+  // const [width, setWidth] = useState();
 
   useEffect(() => {
     handleGetDatas();
   }, []);
+  // useEffect(() => {
+  //   window.addEventListener("resize", setWidth(window.innerWidth));
+  // }, []);
 
   const handleGetDatas = async () => {
     const getVid = await getAudios();
     setAudios(getVid.slice(0, 8));
   };
+
   return (
     <section className="trending mb-[16px] relative">
       <div className="flex items-center justify-between mb-[16px]">
@@ -38,4 +43,4 @@ function Trending() {
   );
 }
 
-export default Trending;
+export default Section;
