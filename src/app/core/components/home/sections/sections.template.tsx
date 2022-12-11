@@ -3,19 +3,16 @@ import { Link } from "react-router-dom";
 import { getAudios } from "../../../../api/api.axios";
 import { Audios } from "../../../models/home.interface";
 import Item from "../item/item.template";
+import { Data } from "../../../../api/api"
 
 function Section() {
-  const [audios, setAudios] = useState<Audios[]>([]);
-  // const [width, setWidth] = useState();
+  const [audios, setAudios] = useState<Audios[]>(Data);
 
   useEffect(() => {
-    handleGetDatas();
+    handleGetData();
   }, []);
-  // useEffect(() => {
-  //   window.addEventListener("resize", setWidth(window.innerWidth));
-  // }, []);
 
-  const handleGetDatas = async () => {
+  const handleGetData = async () => {
     const getVid = await getAudios();
     setAudios(getVid.slice(0, 8));
   };
