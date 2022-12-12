@@ -4,7 +4,12 @@
   &:hover {
     background-color: #282828;
   }
-}
-.shadow {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  .shadow {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+  .title-song {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }

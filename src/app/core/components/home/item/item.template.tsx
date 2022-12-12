@@ -20,7 +20,7 @@ function Item({ item }: { item: Audios }) {
         </div>
       </div>
       <div className="min-h-[62px] mt-[16px]">
-        <h3 className="text-[16px] text-[#fff] font-bold mb-[4px]">
+        <h3 className="title-song text-[16px] text-[#fff] font-bold mb-[4px]">
           {item.title}
         </h3>
         <p className="descriptions text-[14px] font text-[#a7a7a7]">

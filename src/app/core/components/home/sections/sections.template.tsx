@@ -1,21 +1,19 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getAudios } from "../../../../api/api.axios";
-import { Audios } from "../../../models/home.interface";
 import Item from "../item/item.template";
-import { Data } from "../../../../api/api"
+import { Audios } from "../../../../api/api";
 
 function Section() {
-  const [audios, setAudios] = useState<Audios[]>(Data);
+  const [audios, setAudios] = useState(Audios);
 
   useEffect(() => {
-    handleGetData();
+    setAudios(Audios.slice(0, 8));
   }, []);
 
-  const handleGetData = async () => {
-    const getVid = await getAudios();
-    setAudios(getVid.slice(0, 8));
-  };
+  // const handleGetData = async () => {
+  //   const getVid = await getAudios();
+  //   setAudios(getVid.slice(0, 8));
+  // };
 
   return (
     <section className="trending mb-[16px] relative">
