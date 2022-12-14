@@ -1,16 +1,28 @@
 .box {
   height: 90px;
   border-top: 1px solid #282828;
-}
-.disk {
-  button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: color linear 0.12s;
-    &:hover {
+  .btn {
+    .descriptions {
+      position: absolute;
+      background-color: #282828;
+      border-radius: 4px;
+      justify-content: center;
+      align-items: center;
+      width: fit-content;
+      white-space: nowrap;
+      font-size: 14px;
+      top: -32px;
+      left: 50%;
+      transform: translate(-50%);
+      display: none;
+      letter-spacing: 1px;
+      font-weight: 500;
       color: #fff;
+      box-shadow: 0 16px 24px rgb(0 0 0 / 30%), 0 6px 8px rgb(0 0 0 / 20%);
     }
+  }
+  .btn-control:hover ~ .descriptions {
+    display: flex;
   }
 }
 .control {
@@ -18,22 +30,15 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  button {
-    transition: color linear 0.12s;
-    position: relative;
+  .play-btn {
+    color: #000;
+    border-radius: 50%;
+    background-color: #fff;
     width: 32px;
     height: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
-    &:hover {
-      color: #fff;
-    }
-  }
-  .play-btn {
-    color: #000;
-    border-radius: 50%;
-    background-color: #fff;
     &:hover {
       color: #000;
       transform: scale(1.1);
@@ -46,5 +51,14 @@
     color: #a7a7a7;
     font-size: 11px;
     width: 100%;
+  }
+}
+.disk {
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+.btn-control {
+  &:hover {
+    color: #fff;
   }
 }
