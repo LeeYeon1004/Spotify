@@ -2,7 +2,6 @@ import { Outlet } from "react-router-dom";
 import Header from "../core/components/header/header.template";
 import Playing from "../core/components/playing/playing.template";
 import Sidebar from "../core/components/sidebar/sidebar.template";
-import { Audios } from "../api/api";
 
 function HomePage() {
   return (

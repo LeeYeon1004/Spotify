@@ -1,7 +1,11 @@
-import { LikeIcon, PicInPic } from "../../../icons/playing.icons";
+import { useState } from "react";
+import { LikedIcon, LikeIcon, PicInPic } from "../../../icons/playing.icons";
 import BtnControl from "../button-control/button.template";
 
 function Disk() {
+  const [liked, setLiked] = useState<boolean>(false);
+
+  const handleLiked = () => setLiked(!liked);
   return (
     <div className="disk flex items-center px-[16px]">
       <img className="w-[56px] h-[56px]" src="" alt="" />
@@ -14,9 +18,9 @@ function Disk() {
         </p>
       </div>
       <div className="flex items-center">
-        <div className="text-[#ffffffb3]">
+        <div onClick={handleLiked} className="text-[#ffffffb3]">
           <BtnControl descriptions="Save to Your library">
-            <LikeIcon />
+            {liked ? <LikedIcon /> : <LikeIcon />}
           </BtnControl>
         </div>
         <div className="text-[#ffffffb3]">

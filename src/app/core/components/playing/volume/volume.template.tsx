@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   DeviceIcon,
+  MuteIcon,
   QueueIcon,
   SpickerIcon,
 } from "../../../icons/playing.icons";
@@ -8,20 +10,42 @@ import BtnControl from "../button-control/button.template";
 
 function Volume() {
   const [volume, setVolume] = useState("0");
+  const [mute, setMute] = useState<boolean>(false);
+
   useEffect(() => {
-    console.log(volume);
+    if (volume === "0") {
+      setMute(true);
+    } else {
+      setMute(false);
+    }
   }, [volume]);
+
+  const handleMute = () => {
+    setMute(!mute);
+    if (mute === false) {
+      setVolume("0");
+    } else {
+      setVolume("25");
+    }
+  };
+
   return (
     <div className="flex items-center justify-end text-[#a7a7a7]">
-      <BtnControl descriptions="Queue">
-        <QueueIcon />
-      </BtnControl>
+      <button>
+        <Link to="/queue">
+          <BtnControl descriptions="Queue">
+            <QueueIcon />
+          </BtnControl>
+        </Link>
+      </button>
       <BtnControl descriptions="Connect to Device">
         <DeviceIcon />
       </BtnControl>
-      <BtnControl descriptions="Mute">
-        <SpickerIcon />
-      </BtnControl>
+      <div onClick={handleMute}>
+        <BtnControl descriptions="Mute">
+          {mute === false ? <SpickerIcon /> : <MuteIcon />}
+        </BtnControl>
+      </div>
       <input
         className="w-[93px] h-[3px]"
         type="range"
