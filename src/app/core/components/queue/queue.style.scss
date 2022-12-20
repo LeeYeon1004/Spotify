@@ -2,5 +2,37 @@
   width: 100%;
   color: #fff;
   font-size: 14px;
-  position: relative;
+  padding: 0 32px;
+  background-color: #121212;
+  min-height: 100vh;
+  .title {
+    letter-spacing: -1px;
+  }
+  .song-item {
+    width: 100%;
+    grid-template-columns: [index] 16px [first] 4fr [var1] 2fr [last] minmax(
+        120px,
+        1fr
+      );
+    border: 1px solid transparent;
+    border-radius: 4px;
+    grid-gap: 16px;
+    display: grid;
+    padding: 6px 16px;
+    color: #b3b3b3;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all ease-in 0.12s;
+    &:hover {
+      background-color: #ffffff1a;
+      cursor: default;
+      color: #fff;
+    }
+  }
+  .now-playing {
+    h2 {
+      font-size: 16px;
+      color: #1db954;
+    }
+  }
 }

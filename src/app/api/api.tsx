@@ -4,6 +4,7 @@ export const Audios = [
     title: "Xomu&JustinKlyvis-Setsuna",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -11,6 +12,7 @@ export const Audios = [
     title: "卡塔尔世界杯",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/卡塔尔世界杯.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -18,6 +20,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -25,6 +28,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -32,6 +36,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -39,6 +44,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -46,6 +52,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -53,6 +60,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -60,6 +68,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -67,6 +76,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -74,6 +84,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -81,6 +92,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -88,6 +100,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -95,6 +108,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -102,6 +116,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -109,6 +124,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -116,6 +132,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -123,6 +140,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -130,6 +148,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -137,6 +156,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -144,6 +164,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -151,6 +172,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -158,6 +180,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -165,6 +188,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -172,6 +196,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -179,6 +204,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -186,6 +212,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -193,6 +220,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -200,6 +228,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -207,6 +236,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -214,6 +244,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -221,6 +252,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -228,6 +260,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -235,6 +268,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -242,6 +276,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -249,6 +284,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -256,6 +292,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -263,6 +300,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -270,6 +308,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -277,6 +316,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -284,6 +324,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -291,6 +332,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -298,6 +340,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -305,6 +348,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -312,6 +356,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -319,6 +364,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -326,6 +372,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -333,6 +380,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -340,6 +388,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
   {
@@ -347,6 +396,7 @@ export const Audios = [
     title: "Deep Focus",
     description: "Keep calm and focus with ambient and post-rock music.",
     song: ".assets/songs/Xomu&JustinKlyvis-Setsuna.mp3",
+    singer: "Xomu",
     time: "03:00",
   },
 ];

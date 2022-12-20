@@ -9,7 +9,7 @@ function HomePage() {
       <div>
         <Sidebar />
       </div>
-      <div className="pl-[241px] relative">
+      <div className="pl-[241px] relative w-full">
         <div className="sticky top-0 z-[3]">
           <Header />
         </div>
