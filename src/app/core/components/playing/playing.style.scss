@@ -58,7 +58,8 @@
   font-weight: 500;
 }
 .btn-control {
+  // opacity: 0.8;
   &:hover {
-    color: #fff;
+    opacity: 1;
   }
 }

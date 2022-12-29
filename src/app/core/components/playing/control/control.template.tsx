@@ -12,6 +12,8 @@ import BtnControl from "../button-control/button.template";
 function Control() {
   const [range, setRange] = useState("0");
   const [play, setPlay] = useState<boolean>(false);
+  const [shuffle, setShuffle] = useState<boolean>(true);
+  const [repeat, setRepeat] = useState<boolean>(true);
   useEffect(() => {
     console.log(range);
   }, [range]);
@@ -19,11 +21,20 @@ function Control() {
   const handlePlayed = () => {
     setPlay(!play);
   };
+  const handleShuffle = () => {
+    setShuffle(!shuffle);
+  };
+  const handleRepeat = () => {
+    setRepeat(!repeat);
+  };
 
   return (
     <div className="control">
       <div className="text-[#ffffffb3] flex gap-[12px]">
-        <div>
+        <div
+          onClick={handleShuffle}
+          className={`${shuffle === true ? "text-[#1DD25E]" : ""}`}
+        >
           <BtnControl descriptions="Shuffle">
             <RandomIcon />
           </BtnControl>
@@ -41,7 +52,10 @@ function Control() {
             <NextIcon />
           </BtnControl>
         </div>
-        <div>
+        <div
+          onClick={handleRepeat}
+          className={repeat === true ? "text-[#1DD25E]" : ""}
+        >
           <BtnControl descriptions="Repeat">
             <RepeatIcon />
           </BtnControl>

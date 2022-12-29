@@ -7,7 +7,11 @@ function Item({ item }: { item: Audios }) {
     <div className="bg-[#181818] hover-bg rounded-[4px] p-[16px] group">
       <div>
         <div className="relative shadow">
-          <img src={item.img} className="rounded-[4px]" alt="" />
+          <img
+            src={item.img}
+            className="rounded-[4px] min-h-[148.88px]"
+            alt=""
+          />
           <div
             className="
         bg-[#1ed760] absolute right-[8px] bottom-[8px] rounded-[50%] p-[12px] cursor-default

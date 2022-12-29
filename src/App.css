@@ -1,4 +1,5 @@
 .App {
+  user-select: none;
 }
 html {
   overflow: overlay;
@@ -15,4 +16,7 @@ html *::-webkit-scrollbar {
 html *::-webkit-scrollbar-thumb {
   background-color: #ccc;
   border-radius: 4px;
+}
+img {
+  object-fit: cover;
 }
