@@ -6,10 +6,10 @@ import {
   QueueIcon,
   SpickerIcon,
 } from "../../../icons/playing.icons";
-import BtnControl from "../button-control/button.template";
+import BtnControl from "../control/button-control/button.template";
 
 function Volume() {
-  const [volume, setVolume] = useState("0");
+  const [volume, setVolume] = useState("25");
   const [mute, setMute] = useState<boolean>(false);
 
   useEffect(() => {
@@ -19,14 +19,16 @@ function Volume() {
       setMute(false);
     }
   }, [volume]);
-
-  const handleMute = () => {
-    setMute(!mute);
-    if (mute === false) {
+  useEffect(() => {
+    if (mute === true) {
       setVolume("0");
     } else {
       setVolume("25");
     }
+  }, [mute]);
+
+  const handleMute = () => {
+    setMute(!mute);
   };
 
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { LikedIcon, LikeIcon, PicInPic } from "../../../icons/playing.icons";
-import BtnControl from "../button-control/button.template";
+import BtnControl from "../control/button-control/button.template";
 
 function Disk() {
   const [liked, setLiked] = useState<boolean>(false);

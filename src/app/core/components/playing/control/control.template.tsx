@@ -1,3 +1,4 @@
+import "./control.style.scss";
 import { useEffect, useState } from "react";
 import {
   NextIcon,
@@ -7,7 +8,7 @@ import {
   RandomIcon,
   RepeatIcon,
 } from "../../../icons/playing.icons";
-import BtnControl from "../button-control/button.template";
+import BtnControl from "./button-control/button.template";
 
 function Control() {
   const [range, setRange] = useState("0");
@@ -33,7 +34,7 @@ function Control() {
       <div className="text-[#ffffffb3] flex gap-[12px]">
         <div
           onClick={handleShuffle}
-          className={`${shuffle === true ? "text-[#1DD25E]" : ""}`}
+          className={`${shuffle === true ? "text-[#1DD25E] after-icon" : ""}`}
         >
           <BtnControl descriptions="Shuffle">
             <RandomIcon />
@@ -54,7 +55,7 @@ function Control() {
         </div>
         <div
           onClick={handleRepeat}
-          className={repeat === true ? "text-[#1DD25E]" : ""}
+          className={`${repeat === true ? "text-[#1DD25E] after-icon" : ""}`}
         >
           <BtnControl descriptions="Repeat">
             <RepeatIcon />
