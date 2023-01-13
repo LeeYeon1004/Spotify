@@ -2,10 +2,14 @@ import { Outlet } from "react-router-dom";
 import Header from "../core/components/header/header.template";
 import Playing from "../core/components/playing/playing.template";
 import Sidebar from "../core/components/sidebar/sidebar.template";
+import Redux from "../redux";
 
 function HomePage() {
   return (
-    <div className="flex w-full relative">
+    <div className="flex w-full relative pb-[90px]">
+      <div>
+        <Redux />
+      </div>
       <div>
         <Sidebar />
       </div>

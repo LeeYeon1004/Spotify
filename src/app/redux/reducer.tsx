@@ -7,12 +7,17 @@ const initState = {
   todoList: [{}],
 };
 
-const rootReducer = (state = initState, action) => {
-  switch (actions.type) {
+const rootReducer = (state = initState, action: { type: any }) => {
+  switch (action.type) {
     case "add":
-      break;
+      return {
+        ...state,
+        todoList: [...state.todoList, {}],
+      };
 
     default:
-      break;
+      return state;
   }
 };
+
+export default rootReducer;
