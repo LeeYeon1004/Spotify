@@ -9,15 +9,14 @@ function Item({ item }: { item: Audios }) {
         <div className="relative shadow">
           <img
             src={item.img}
-            className="rounded-[4px] min-h-[148.88px]"
+            className="rounded-[4px] min-h-[148.88px] aspect-square"
             alt=""
           />
           <div
-            className="
-        bg-[#1ed760] absolute right-[8px] bottom-[8px] rounded-[50%] p-[12px] cursor-default
-        opacity-0 transform translate-y-[8px] group-hover:opacity-100 group-hover:translate-y-0
-        transition-all duration-200
-        "
+            className="bg-[#1ed760] absolute right-[8px] bottom-[8px] rounded-[50%] p-[12px] cursor-default
+            opacity-0 transform translate-y-[8px] group-hover:opacity-100 group-hover:translate-y-0
+            transition-all duration-200
+            "
           >
             <PlayIcon />
           </div>

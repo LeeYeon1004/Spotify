@@ -16,6 +16,8 @@ function Queue() {
 
   const handleGetNowplaying = (index: number) => {
     setNowplaying(Audios[index]);
+    console.log(nowplaying);
+    
   };
 
   const handleLiked = () => setLiked(!liked);
