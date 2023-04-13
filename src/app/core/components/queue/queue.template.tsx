@@ -1,23 +1,27 @@
 import { useEffect, useState } from "react";
-import { Audios } from "../../../api/api";
+import { Song } from "../../../api/api";
 import { LikeIcon, PlayIcon } from "../../icons/playing.icons";
 import { LikedIcon } from "../../icons/sidebar.icons";
 import { Audios as AudiosInterface } from "../../models/home.interface";
 import "./queue.style.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { onChangeSong } from "../../../redux-toolkit/song/songSlice";
+import { useAppDispatch } from "../../../redux-toolkit/hook";
 
 function Queue() {
-  const [songs, setSongs] = useState<AudiosInterface[]>();
-  const [nowplaying, setNowplaying] = useState<AudiosInterface>(Audios[0]);
+  const [songs, setSongs] = useState<AudiosInterface[]>(Song);
+  const [nowplaying, setNowplaying] = useState<AudiosInterface>(Song[0]);
   const [liked, setLiked] = useState<boolean>(false);
+  // const song = useSelector((state: any) => state.onChangeSong);
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    setSongs(Audios);
+    dispatch(onChangeSong(Song[0]));
   }, []);
 
   const handleGetNowplaying = (index: number) => {
-    setNowplaying(Audios[index]);
-    console.log(nowplaying);
-    
+    setNowplaying(Song[index]);
+    dispatch(onChangeSong(Song[index]));
   };
 
   const handleLiked = () => setLiked(!liked);

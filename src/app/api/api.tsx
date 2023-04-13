@@ -1,4 +1,4 @@
-export const Audios = [
+export const Song = [
   {
     img: "https://i.scdn.co/image/ab67706f000000025551996f500ba876bda73fa5",
     title: "Xomu&JustinKlyvis-Setsuna",

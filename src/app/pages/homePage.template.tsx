@@ -2,23 +2,11 @@ import { Outlet } from "react-router-dom";
 import Header from "../core/components/header/header.template";
 import Playing from "../core/components/playing/playing.template";
 import Sidebar from "../core/components/sidebar/sidebar.template";
-import Redux from "../redux";
-import { onChangeSong } from "../redux-toolkit/song/songSlice";
-import { useDispatch, useSelector } from "react-redux";
 
 function HomePage() {
-  const count = useSelector((state: any) => state.counter);
-
-  const dispatch = useDispatch();
-
-  const test = () => {
-    dispatch(onChangeSong({}));
-  };
+  
   return (
     <div className="flex w-full relative pb-[90px]">
-      {/* <div>
-        <Redux />
-      </div> */}
       <div>
         <Sidebar />
       </div>

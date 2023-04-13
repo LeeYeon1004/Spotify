@@ -1,27 +1,28 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
 
-export interface CounterState {
-  value: number
-  song: any
+export interface SongState {
+  song: any;
 }
 
-const initialState: CounterState = {
-  value: 0,
-  song: {}
-}
+const initialState: SongState = {
+  song: {},
+};
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const songSlice = createSlice({
+  name: "song",
   initialState,
   reducers: {
-    onChangeSong: (state, action) => {
-      state.song = action.payload
+    onChangeSong: (state, action: PayloadAction<any>) => {
+      state.song = action.payload;
+      console.log(state.song);
+      
     },
   },
-})
+});
 
 // Action creators are generated for each case reducer function
-export const { onChangeSong } = counterSlice.actions
+export const { onChangeSong } = songSlice.actions;
+export const selectSong = (state: any) => state.song.onChangeSong
 
-export default counterSlice.reducer
+export default songSlice.reducer;

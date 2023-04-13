@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './song/songSlice'
+import songReducer from './song/songSlice'
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    song: songReducer,
   },
 })
 

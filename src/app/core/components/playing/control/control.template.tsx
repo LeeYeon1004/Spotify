@@ -16,7 +16,7 @@ function Control() {
   const [shuffle, setShuffle] = useState<boolean>(true);
   const [repeat, setRepeat] = useState<boolean>(true);
   useEffect(() => {
-    console.log(range);
+    // console.log(range);
   }, [range]);
 
   const handlePlayed = () => {
