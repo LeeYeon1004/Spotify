@@ -23,6 +23,5 @@ export const songSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const { onChangeSong } = songSlice.actions;
-export const selectSong = (state: any) => state.song.onChangeSong
 
 export default songSlice.reducer;

@@ -4,16 +4,14 @@ import { LikeIcon, PlayIcon } from "../../icons/playing.icons";
 import { LikedIcon } from "../../icons/sidebar.icons";
 import { Audios as AudiosInterface } from "../../models/home.interface";
 import "./queue.style.scss";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { onChangeSong } from "../../../redux-toolkit/song/songSlice";
-import { useAppDispatch } from "../../../redux-toolkit/hook";
 
 function Queue() {
   const [songs, setSongs] = useState<AudiosInterface[]>(Song);
   const [nowplaying, setNowplaying] = useState<AudiosInterface>(Song[0]);
   const [liked, setLiked] = useState<boolean>(false);
-  // const song = useSelector((state: any) => state.onChangeSong);
-  const dispatch = useAppDispatch()
+  const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(onChangeSong(Song[0]));
