@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { onChangeSong } from "../../../redux-toolkit/song/songSlice";
 
 function Queue() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [songs, setSongs] = useState<AudiosInterface[]>(Song);
   const [nowplaying, setNowplaying] = useState<AudiosInterface>(Song[0]);
   const [liked, setLiked] = useState<boolean>(false);
@@ -15,6 +16,7 @@ function Queue() {
 
   useEffect(() => {
     dispatch(onChangeSong(Song[0]));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleGetNowplaying = (index: number) => {

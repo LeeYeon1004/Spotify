@@ -15,8 +15,6 @@ export const songSlice = createSlice({
   reducers: {
     onChangeSong: (state, action: PayloadAction<any>) => {
       state.song = action.payload;
-      console.log(state.song);
-      
     },
   },
 });

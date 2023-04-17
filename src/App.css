@@ -14,7 +14,7 @@ html *::-webkit-scrollbar {
   background-color: transparent;
 }
 html *::-webkit-scrollbar-thumb {
-  background-color: #ccc;
+  background-color: #333;
   border-radius: 4px;
 }
 img {

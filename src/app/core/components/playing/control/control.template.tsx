@@ -9,18 +9,28 @@ import {
   RepeatIcon,
 } from "../../../icons/playing.icons";
 import BtnControl from "./button-control/button.template";
+// import { useSelector } from "react-redux";
 
 function Control() {
   const [range, setRange] = useState("0");
   const [play, setPlay] = useState<boolean>(false);
   const [shuffle, setShuffle] = useState<boolean>(true);
   const [repeat, setRepeat] = useState<boolean>(true);
+  // const song = useSelector((state: any) => state.song.song);
+  const audio = new Audio("https://t.ly/lGui");
+
   useEffect(() => {
     // console.log(range);
   }, [range]);
 
   const handlePlayed = () => {
     setPlay(!play);
+    if (play) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+    console.log(play);
   };
   const handleShuffle = () => {
     setShuffle(!shuffle);
