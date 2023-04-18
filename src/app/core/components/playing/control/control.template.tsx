@@ -1,5 +1,5 @@
 import "./control.style.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   NextIcon,
   PauseIcon,
@@ -9,28 +9,28 @@ import {
   RepeatIcon,
 } from "../../../icons/playing.icons";
 import BtnControl from "./button-control/button.template";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 function Control() {
-  const [range, setRange] = useState("0");
-  const [play, setPlay] = useState<boolean>(false);
+  const [range, setRange] = useState<any>(0);
+  const [playing, setPlaying] = useState<boolean>(false);
   const [shuffle, setShuffle] = useState<boolean>(true);
   const [repeat, setRepeat] = useState<boolean>(true);
-  // const song = useSelector((state: any) => state.song.song);
-  const audio = new Audio("https://t.ly/lGui");
+  const [timeLeft, setTimeLeft] = useState("00:00");
+  const [timeRight, setTimeRight] = useState("00:00");
+  const audio = useSelector((state: any) => state.song.song)
+  const audioRef = useRef(new Audio());
 
   useEffect(() => {
-    // console.log(range);
-  }, [range]);
+    if (playing) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  }, [playing]);
 
   const handlePlayed = () => {
-    setPlay(!play);
-    if (play) {
-      audio.play();
-    } else {
-      audio.pause();
-    }
-    console.log(play);
+    setPlaying(!playing);
   };
   const handleShuffle = () => {
     setShuffle(!shuffle);
@@ -38,9 +38,34 @@ function Control() {
   const handleRepeat = () => {
     setRepeat(!repeat);
   };
+  const convertTime = (string: number, pad: string, length: number) => {
+    return (new Array(length + 1).join(pad) + string).slice(-length);
+  };
+  const handleProgress = () => {
+    const duration = audioRef.current.duration;
+    const currentTime = audioRef.current.currentTime;
+    let minutes = Math.floor(currentTime / 60);
+    let seconds = Math.floor(currentTime - minutes * 60);
+    const progress = (currentTime / duration) * 1000;
+
+    let finalTime =
+      convertTime(minutes, "0", 2) + ":" + convertTime(seconds, "0", 2);
+    setTimeLeft(finalTime);
+    setTimeRight(
+      convertTime(Math.floor(duration / 60), "0", 2) +
+        ":" +
+        convertTime(
+          Math.floor(duration) - Math.floor(duration / 60) * 60,
+          "0",
+          2
+        )
+    );
+    setRange(progress);
+  };
 
   return (
     <div className="control">
+      <audio ref={audioRef} src={audio.link} onTimeUpdate={handleProgress}></audio>
       <div className="text-[#ffffffb3] flex gap-[12px]">
         <div
           onClick={handleShuffle}
@@ -56,7 +81,7 @@ function Control() {
           </BtnControl>
         </div>
         <button onClick={handlePlayed} className="play-btn">
-          {play ? <PauseIcon /> : <PlayIcon />}
+          {playing ? <PauseIcon /> : <PlayIcon />}
         </button>
         <div>
           <BtnControl descriptions="Next">
@@ -73,7 +98,7 @@ function Control() {
         </div>
       </div>
       <div className="progress px-[12px]">
-        <h3 className="time-left">00:00</h3>
+        <h3 className="time-left">{timeLeft}</h3>
         <div className="flex items-center w-full px-[12px]">
           <input
             className="w-full h-[3px]"
@@ -86,7 +111,7 @@ function Control() {
             readOnly
           />
         </div>
-        <h3 className="time-right">00:00</h3>
+        <h3 className="time-right">{timeRight}</h3>
       </div>
     </div>
   );

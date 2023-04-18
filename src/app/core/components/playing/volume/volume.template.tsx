@@ -7,10 +7,12 @@ import {
   SpickerIcon,
 } from "../../../icons/playing.icons";
 import BtnControl from "../control/button-control/button.template";
+import { useSelector } from "react-redux";
 
 function Volume() {
   const [volume, setVolume] = useState("25");
   const [mute, setMute] = useState<boolean>(false);
+  const audio = useSelector((state: any) => state.song.song)
 
   useEffect(() => {
     if (volume === "0") {
@@ -18,6 +20,8 @@ function Volume() {
     } else {
       setMute(false);
     }
+    console.log(volume);
+    
   }, [volume]);
   useEffect(() => {
     if (mute === true) {
