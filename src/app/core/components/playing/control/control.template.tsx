@@ -18,9 +18,13 @@ function Control() {
   const [repeat, setRepeat] = useState<boolean>(true);
   const [timeLeft, setTimeLeft] = useState("00:00");
   const [timeRight, setTimeRight] = useState("00:00");
-  const audio = useSelector((state: any) => state.song.song)
+  const [audioEl, setAudioEl] = useState<any>();
+  const audio = useSelector((state: any) => state.song.song);
   const audioRef = useRef(new Audio());
 
+  useEffect(() => {
+    setAudioEl(document.querySelector("#audio"));
+  }, []);
   useEffect(() => {
     if (playing) {
       audioRef.current.play();
@@ -30,6 +34,9 @@ function Control() {
   }, [playing]);
 
   const handlePlayed = () => {
+    console.log(audioEl);
+    audioEl.play()
+
     setPlaying(!playing);
   };
   const handleShuffle = () => {
@@ -47,7 +54,6 @@ function Control() {
     let minutes = Math.floor(currentTime / 60);
     let seconds = Math.floor(currentTime - minutes * 60);
     const progress = (currentTime / duration) * 1000;
-
     let finalTime =
       convertTime(minutes, "0", 2) + ":" + convertTime(seconds, "0", 2);
     setTimeLeft(finalTime);
@@ -65,7 +71,12 @@ function Control() {
 
   return (
     <div className="control">
-      <audio ref={audioRef} src={audio.link} onTimeUpdate={handleProgress}></audio>
+      <audio
+        id="audio"
+        ref={audioRef}
+        src={audio.link}
+        onTimeUpdate={handleProgress}
+      ></audio>
       <div className="text-[#ffffffb3] flex gap-[12px]">
         <div
           onClick={handleShuffle}

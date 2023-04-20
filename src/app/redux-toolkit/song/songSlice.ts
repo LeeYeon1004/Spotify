@@ -11,7 +11,7 @@ const initialState: SongState = {
     img: "https://i.scdn.co/image/ab67706f000000025551996f500ba876bda73fa5",
     title: "‘꽃(FLOWER)’",
     description: "JISOO - ‘꽃(FLOWER)’",
-    link: "https://tinyurl.com/ee42pyt8",
+    link: "./a.mp3",
     singer: "JSOO",
     time: "03:00",
   },
