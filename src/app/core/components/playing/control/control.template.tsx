@@ -10,6 +10,7 @@ import {
 } from "../../../icons/playing.icons";
 import BtnControl from "./button-control/button.template";
 import { useSelector } from "react-redux";
+import crAudio from "../../../../assets/songs/1.mp3"
 
 function Control() {
   const [range, setRange] = useState<any>(0);
@@ -18,13 +19,9 @@ function Control() {
   const [repeat, setRepeat] = useState<boolean>(true);
   const [timeLeft, setTimeLeft] = useState("00:00");
   const [timeRight, setTimeRight] = useState("00:00");
-  const [audioEl, setAudioEl] = useState<any>();
   const audio = useSelector((state: any) => state.song.song);
   const audioRef = useRef(new Audio());
 
-  useEffect(() => {
-    setAudioEl(document.querySelector("#audio"));
-  }, []);
   useEffect(() => {
     if (playing) {
       audioRef.current.play();
@@ -34,9 +31,6 @@ function Control() {
   }, [playing]);
 
   const handlePlayed = () => {
-    console.log(audioEl);
-    audioEl.play()
-
     setPlaying(!playing);
   };
   const handleShuffle = () => {
@@ -74,7 +68,7 @@ function Control() {
       <audio
         id="audio"
         ref={audioRef}
-        src={audio.link}
+        src={crAudio}
         onTimeUpdate={handleProgress}
       ></audio>
       <div className="text-[#ffffffb3] flex gap-[12px]">

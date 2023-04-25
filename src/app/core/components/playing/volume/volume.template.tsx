@@ -20,7 +20,6 @@ function Volume() {
     } else {
       setMute(false);
     }
-    console.log(volume);
     
   }, [volume]);
   useEffect(() => {
