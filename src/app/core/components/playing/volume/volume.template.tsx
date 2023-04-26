@@ -7,12 +7,13 @@ import {
   SpickerIcon,
 } from "../../../icons/playing.icons";
 import BtnControl from "../control/button-control/button.template";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { onChangeVolume } from "../../../../redux-toolkit/slices/songSlice";
 
 function Volume() {
   const [volume, setVolume] = useState("25");
   const [mute, setMute] = useState<boolean>(false);
-  const audio = useSelector((state: any) => state.song.song)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (volume === "0") {
@@ -20,8 +21,8 @@ function Volume() {
     } else {
       setMute(false);
     }
-    
-  }, [volume]);
+    dispatch(onChangeVolume(volume))
+  }, [dispatch, volume]);
   useEffect(() => {
     if (mute === true) {
       setVolume("0");

@@ -9,8 +9,10 @@ import {
   RepeatIcon,
 } from "../../../icons/playing.icons";
 import BtnControl from "./button-control/button.template";
-import { useSelector } from "react-redux";
-import crAudio from "../../../../assets/songs/1.mp3"
+import { useDispatch, useSelector } from "react-redux";
+import crAudio from "../../../../assets/songs/1.mp3";
+import { onChangeStatus } from "../../../../redux-toolkit/slices/playingSlice";
+import { SongState } from "../../../../redux-toolkit/slices/songSlice";
 
 function Control() {
   const [range, setRange] = useState<any>(0);
@@ -19,8 +21,9 @@ function Control() {
   const [repeat, setRepeat] = useState<boolean>(true);
   const [timeLeft, setTimeLeft] = useState("00:00");
   const [timeRight, setTimeRight] = useState("00:00");
-  const audio = useSelector((state: any) => state.song.song);
+  const volume = useSelector((state: SongState) => state.song.volume);
   const audioRef = useRef(new Audio());
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (playing) {
@@ -28,7 +31,11 @@ function Control() {
     } else {
       audioRef.current.pause();
     }
-  }, [playing]);
+    dispatch(onChangeStatus(playing));
+  }, [dispatch, playing]);
+  useEffect(() => {
+    audioRef.current.volume = volume / 100;
+  }, [volume]);
 
   const handlePlayed = () => {
     setPlaying(!playing);
@@ -70,7 +77,7 @@ function Control() {
         ref={audioRef}
         src={crAudio}
         onTimeUpdate={handleProgress}
-      ></audio>
+      />
       <div className="text-[#ffffffb3] flex gap-[12px]">
         <div
           onClick={handleShuffle}

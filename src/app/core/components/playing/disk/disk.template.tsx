@@ -2,15 +2,20 @@ import { useState } from "react";
 import { LikedIcon, LikeIcon, PicInPic } from "../../../icons/playing.icons";
 import BtnControl from "../control/button-control/button.template";
 import { useSelector } from "react-redux";
+import "./disk.style.scss"
 
 function Disk() {
   const [liked, setLiked] = useState<boolean>(false);
   const song = useSelector((state: any) => state.song.song);
+  const isPlaying = useSelector((state: any) => state.played.played);
 
   const handleLiked = () => setLiked(!liked);
+
   return (
     <div className="disk flex items-center px-[16px]">
-      <img className="w-[56px] h-[56px]" src={song.img} alt="" />
+      <div>
+        <img className={isPlaying ? `playing`: `w-[56px] h-[56px]`} src={song.img} alt="" />
+      </div>
       <div className="mx-[14px]">
         <h3 className="text-[#fff] text-[14px] cursor-pointer hover:underline">
           {song.title}

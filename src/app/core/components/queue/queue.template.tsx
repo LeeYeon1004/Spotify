@@ -5,7 +5,7 @@ import { LikedIcon } from "../../icons/sidebar.icons";
 import { Audios as AudiosInterface } from "../../models/home.interface";
 import "./queue.style.scss";
 import { useDispatch } from "react-redux";
-import { onChangeSong } from "../../../redux-toolkit/song/songSlice";
+import { onChangeSong } from "../../../redux-toolkit/slices/songSlice";
 
 function Queue() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
