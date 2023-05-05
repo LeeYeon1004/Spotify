@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import songReducer from './slices/songSlice'
-import playedSlice from './slices/playingSlice'
+import playedReducer from './slices/playingSlice'
 
 export const store = configureStore({
   reducer: {
     song: songReducer,
-    played: playedSlice,
+    played: playedReducer,
   },
 })
 

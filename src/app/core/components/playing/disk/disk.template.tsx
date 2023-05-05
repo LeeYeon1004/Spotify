@@ -6,10 +6,11 @@ import "./disk.style.scss"
 
 function Disk() {
   const [liked, setLiked] = useState<boolean>(false);
-  const song = useSelector((state: any) => state.song.song);
+  const song = useSelector((state: any) => state.song.songItem);
   const isPlaying = useSelector((state: any) => state.played.played);
 
   const handleLiked = () => setLiked(!liked);
+  console.log(song);
 
   return (
     <div className="disk flex items-center px-[16px]">

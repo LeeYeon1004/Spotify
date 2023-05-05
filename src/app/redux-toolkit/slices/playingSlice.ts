@@ -10,7 +10,7 @@ const initialState: PlayState = {
 };
 
 export const playedSlice = createSlice({
-  name: "played",
+  name: "playedSlice",
   initialState,
   reducers: {
     onChangeStatus: (state, action: PayloadAction<any>) => {

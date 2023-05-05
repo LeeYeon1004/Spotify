@@ -10,20 +10,27 @@ import {
 } from "../../../icons/playing.icons";
 import BtnControl from "./button-control/button.template";
 import { useDispatch, useSelector } from "react-redux";
-import crAudio from "../../../../assets/songs/1.mp3";
 import { onChangeStatus } from "../../../../redux-toolkit/slices/playingSlice";
-import { SongState } from "../../../../redux-toolkit/slices/songSlice";
+import { RootState } from "../../../../redux-toolkit/store";
 
 function Control() {
-  const [range, setRange] = useState<any>(0);
+  const audioRef = useRef(new Audio());
+  const [range, setRange] = useState<number>(0);
   const [playing, setPlaying] = useState<boolean>(false);
   const [shuffle, setShuffle] = useState<boolean>(true);
   const [repeat, setRepeat] = useState<boolean>(true);
   const [timeLeft, setTimeLeft] = useState("00:00");
   const [timeRight, setTimeRight] = useState("00:00");
-  const volume = useSelector((state: SongState) => state.song.volume);
-  const audioRef = useRef(new Audio());
+  const volume = useSelector((state: RootState) => state.song.volume);
+  const audioCurrent = useSelector((state: RootState) => state.song.songItem);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setRange(0)
+    setPlaying(false)
+    console.log(123);
+    
+  }, [audioCurrent])
 
   useEffect(() => {
     if (playing) {
@@ -33,6 +40,7 @@ function Control() {
     }
     dispatch(onChangeStatus(playing));
   }, [dispatch, playing]);
+
   useEffect(() => {
     audioRef.current.volume = volume / 100;
   }, [volume]);
@@ -69,14 +77,25 @@ function Control() {
     );
     setRange(progress);
   };
+  const handleSeek = (value: string) => {
+    const duration = audioRef.current.duration;
+    audioRef.current.currentTime = duration / 1000 * +value
+  }
+  const handleEnded = () => {
+    if(repeat){
+      audioRef.current.play()
+    }
+  }
 
   return (
     <div className="control">
       <audio
-        id="audio"
         ref={audioRef}
-        src={crAudio}
-        onTimeUpdate={handleProgress}
+        src={audioCurrent.link}
+        onTimeUpdate={() => {
+          handleProgress();
+        }}
+        onEnded={handleEnded}
       />
       <div className="text-[#ffffffb3] flex gap-[12px]">
         <div
@@ -116,11 +135,10 @@ function Control() {
             className="w-full h-[3px]"
             type="range"
             value={range}
-            onChange={(e) => setRange(e.target.value)}
+            onChange={(e) => handleSeek(e.target.value)}
             step="1"
             min="0"
             max="1000"
-            readOnly
           />
         </div>
         <h3 className="time-right">{timeRight}</h3>

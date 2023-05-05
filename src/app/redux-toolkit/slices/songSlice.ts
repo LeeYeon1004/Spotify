@@ -1,31 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { Song } from "../../api/api";
+import { Audios } from "../../core/models/home.interface";
 
 export interface SongState {
-  song: any;
+  songItem: Audios;
   volume: number;
 }
 
 const initialState: SongState = {
-  song: {
-    img: "https://i.scdn.co/image/ab67706f000000025551996f500ba876bda73fa5",
-    title: "‘꽃(FLOWER)’",
-    description: "JISOO - ‘꽃(FLOWER)’",
-    link: "../../../../assets/songs/1.mp3",
-    singer: "JSOO",
-    time: "03:00",
-  },
-  volume: 25,
+  songItem: Song[0],
+  volume: 30,
 };
 
 export const songSlice = createSlice({
-  name: "song",
+  name: "songSlice",
   initialState,
   reducers: {
-    onChangeSong: (state, action: PayloadAction<any>) => {
-      state.song = action.payload;
+    onChangeSong: (state, action: PayloadAction<Audios>) => {
+      state.songItem = action.payload;
     },
-    onChangeVolume: (state, action: PayloadAction<any>) => {
+    onChangeVolume: (state, action: PayloadAction<number>) => {
       state.volume = action.payload;
     },
   },

@@ -21,7 +21,7 @@ function Volume() {
     } else {
       setMute(false);
     }
-    dispatch(onChangeVolume(volume))
+    dispatch(onChangeVolume(+volume))
   }, [dispatch, volume]);
   useEffect(() => {
     if (mute === true) {
