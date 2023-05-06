@@ -24,13 +24,13 @@ function Control() {
   const volume = useSelector((state: RootState) => state.song.volume);
   const audioCurrent = useSelector((state: RootState) => state.song.songItem);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    setRange(0)
-    setPlaying(false)
-    console.log(123);
-    
-  }, [audioCurrent])
+  
+  
+  useEffect(()=>{
+    setTimeout(() => {
+      handleProgress()
+    }, 200);
+  },[audioRef.current.duration, audioCurrent])
 
   useEffect(() => {
     if (playing) {
@@ -60,6 +60,9 @@ function Control() {
   const handleProgress = () => {
     const duration = audioRef.current.duration;
     const currentTime = audioRef.current.currentTime;
+
+    if(isNaN(duration) || isNaN(currentTime)) return
+
     let minutes = Math.floor(currentTime / 60);
     let seconds = Math.floor(currentTime - minutes * 60);
     const progress = (currentTime / duration) * 1000;

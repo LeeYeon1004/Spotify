@@ -10,7 +10,6 @@ function Disk() {
   const isPlaying = useSelector((state: any) => state.played.played);
 
   const handleLiked = () => setLiked(!liked);
-  console.log(song);
 
   return (
     <div className="disk flex items-center px-[16px]">
