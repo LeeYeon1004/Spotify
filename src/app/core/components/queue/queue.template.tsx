@@ -4,24 +4,36 @@ import { LikeIcon, PlayIcon } from "../../icons/playing.icons";
 import { LikedIcon } from "../../icons/sidebar.icons";
 import { Audios as AudiosInterface } from "../../models/home.interface";
 import "./queue.style.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { onChangeSong } from "../../../redux-toolkit/slices/songSlice";
+import { onChangeLoading } from "../../../redux-toolkit/slices/loadingSlice";
+import { RootState } from "../../../redux-toolkit/store";
 
 function Queue() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [songs, setSongs] = useState<AudiosInterface[]>(Song);
   const [nowplaying, setNowplaying] = useState<AudiosInterface>(Song[0]);
+  const [nextSong, setNextSong] = useState<AudiosInterface>(Song[1]);
   const [liked, setLiked] = useState<boolean>(false);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const audioCurrent = useSelector((state: RootState) => state.song.songItem);
 
   useEffect(() => {
     dispatch(onChangeSong(Song[0]));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(() => {
+    if (audioCurrent.id + 1 < Song.length) {
+      setNextSong(Song[audioCurrent.id + 1]);
+    } else {
+      setNextSong(Song[0]);
+    }
+  }, [audioCurrent]);
 
   const handleGetNowplaying = (index: number) => {
     setNowplaying(Song[index]);
     dispatch(onChangeSong(Song[index]));
+    dispatch(onChangeLoading(true));
   };
 
   const handleLiked = () => setLiked(!liked);
@@ -64,8 +76,9 @@ function Queue() {
         </div>
         {/* playlist */}
         <div className="playlist">
-          <h3 className="text-[16px] font-bold text-[#a7a7a7] mt-[40px] mb-[8px]">
+          <h3 className="text-[16px] font-bold text-[#a7a7a7] mt-[40px] mb-[8px] flex items-center">
             Next song:
+            <p className="hover:underline ml-[4px]">{nextSong.title}</p>
           </h3>
           {songs?.map((item, index) => (
             <div

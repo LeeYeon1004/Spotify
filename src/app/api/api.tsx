@@ -1,14 +1,15 @@
-import track1 from "../assets/songs/1.mp3"
-import track2 from "../assets/songs/2.mp3"
-import track3 from "../assets/songs/3.mp3"
-import track4 from "../assets/songs/2.mp3"
 import img1 from "../assets/img/1.jpg"
 import img2 from "../assets/img/2.jpg"
 import img3 from "../assets/img/3.jpg"
 import img4 from "../assets/img/4.jpg"
-// import img5 from "../assets/img/5.jpg"
-// import track5 from "../assets/songs/1.mp3"
-// import track6 from "../assets/songs/1.mp3"
+import img5 from "../assets/img/5.jpg"
+import img6 from "../assets/img/6.jpg"
+import track1 from "../assets/songs/1.mp3"
+import track2 from "../assets/songs/2.mp3"
+import track3 from "../assets/songs/3.mp3"
+import track4 from "../assets/songs/4.mp3"
+import track5 from "../assets/songs/5.mp3"
+import track6 from "../assets/songs/6.mp3"
 // import track7 from "../assets/songs/1.mp3"
 // import track8 from "../assets/songs/1.mp3"
 // import track9 from "../assets/songs/1.mp3"
@@ -17,6 +18,7 @@ import img4 from "../assets/img/4.jpg"
 
 export const Song = [
   {
+    id: 0,
     img: img1,
     title: "Setsuna",
     description: "China type beat 2",
@@ -25,6 +27,7 @@ export const Song = [
     time: "03:00",
   },
   {
+    id: 1,
     img: img2,
     title: "Pagoda",
     description: "China type beat 2",
@@ -33,6 +36,7 @@ export const Song = [
     time: "03:00",
   },
   {
+    id: 2,
     img: img3,
     title: "China-G",
     description: "StarlingEDM",
@@ -41,11 +45,30 @@ export const Song = [
     time: "03:00",
   },
   {
+    id: 3,
     img: img4,
-    title: "Pagoda",
-    description: "China type beat 2",
+    title: "Lenterns",
+    description: "Xomu album",
     link: track4,
-    singer: "Xomu & Amidst",
+    singer: "Xomu",
+    time: "03:00",
+  },
+  {
+    id: 4,
+    img: img5,
+    title: "Tera (Original Mix)",
+    description: "Xomu album",
+    link: track5,
+    singer: "Xomu",
+    time: "03:00",
+  },
+  {
+    id: 5,
+    img: img6,
+    title: "Last Dance",
+    description: "Xomu album",
+    link: track6,
+    singer: "Xomu",
     time: "03:00",
   },
 ];

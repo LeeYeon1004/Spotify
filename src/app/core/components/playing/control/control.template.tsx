@@ -12,6 +12,8 @@ import BtnControl from "./button-control/button.template";
 import { useDispatch, useSelector } from "react-redux";
 import { onChangeStatus } from "../../../../redux-toolkit/slices/playingSlice";
 import { RootState } from "../../../../redux-toolkit/store";
+import { onChangeSong } from "../../../../redux-toolkit/slices/songSlice";
+import { Song } from "../../../../api/api";
 
 function Control() {
   const audioRef = useRef(new Audio());
@@ -24,13 +26,13 @@ function Control() {
   const volume = useSelector((state: RootState) => state.song.volume);
   const audioCurrent = useSelector((state: RootState) => state.song.songItem);
   const dispatch = useDispatch();
-  
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     setTimeout(() => {
-      handleProgress()
+      handleProgress();
     }, 200);
-  },[audioRef.current.duration, audioCurrent])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [audioCurrent]);
 
   useEffect(() => {
     if (playing) {
@@ -39,7 +41,7 @@ function Control() {
       audioRef.current.pause();
     }
     dispatch(onChangeStatus(playing));
-  }, [dispatch, playing]);
+  }, [dispatch, playing, audioCurrent]);
 
   useEffect(() => {
     audioRef.current.volume = volume / 100;
@@ -61,7 +63,7 @@ function Control() {
     const duration = audioRef.current.duration;
     const currentTime = audioRef.current.currentTime;
 
-    if(isNaN(duration) || isNaN(currentTime)) return
+    if (isNaN(duration) || isNaN(currentTime)) return;
 
     let minutes = Math.floor(currentTime / 60);
     let seconds = Math.floor(currentTime - minutes * 60);
@@ -82,13 +84,27 @@ function Control() {
   };
   const handleSeek = (value: string) => {
     const duration = audioRef.current.duration;
-    audioRef.current.currentTime = duration / 1000 * +value
-  }
+    audioRef.current.currentTime = (duration / 1000) * +value;
+  };
   const handleEnded = () => {
-    if(repeat){
-      audioRef.current.play()
+    if (repeat) {
+      audioRef.current.play();
     }
-  }
+  };
+  const handleNext = () => {
+    if (audioCurrent.id + 1 < Song.length) {
+      dispatch(onChangeSong(Song[audioCurrent.id + 1]));
+    } else {
+      dispatch(onChangeSong(Song[0]));
+    }
+  };
+  const handlePrevious = () => {
+    if (audioCurrent.id - 1 > 0) {
+      dispatch(onChangeSong(Song[audioCurrent.id - 1]));
+    } else {
+      dispatch(onChangeSong(Song[Song.length - 1]));
+    }
+  };
 
   return (
     <div className="control">
@@ -109,19 +125,19 @@ function Control() {
             <RandomIcon />
           </BtnControl>
         </div>
-        <div>
+        <button onClick={handlePrevious}>
           <BtnControl descriptions="Previous">
             <PrevIcon />
           </BtnControl>
-        </div>
+        </button>
         <button onClick={handlePlayed} className="play-btn">
           {playing ? <PauseIcon /> : <PlayIcon />}
         </button>
-        <div>
+        <button onClick={handleNext}>
           <BtnControl descriptions="Next">
             <NextIcon />
           </BtnControl>
-        </div>
+        </button>
         <div
           onClick={handleRepeat}
           className={`${repeat === true ? "text-[#1DD25E] after-icon" : ""}`}

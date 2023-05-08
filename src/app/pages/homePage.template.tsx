@@ -2,15 +2,16 @@ import { Outlet } from "react-router-dom";
 import Header from "../core/components/header/header.template";
 import Playing from "../core/components/playing/playing.template";
 import Sidebar from "../core/components/sidebar/sidebar.template";
+import Loading from "../core/components/modal/loading.template";
 
 function HomePage() {
-  
   return (
     <div className="flex w-full relative pb-[90px]">
+      <Loading />
       <div>
         <Sidebar />
       </div>
-      <div className="pl-[241px] relative w-full min-h-screen bg-[#121212]">
+      <div className="pl-[280px] relative w-full min-h-screen bg-[#121212]">
         <div className="sticky top-0 z-[3]">
           <Header />
         </div>

@@ -9,11 +9,13 @@ import {
 import BtnControl from "../control/button-control/button.template";
 import { useDispatch } from "react-redux";
 import { onChangeVolume } from "../../../../redux-toolkit/slices/songSlice";
+import { useLocation } from "react-router-dom";
 
 function Volume() {
   const [volume, setVolume] = useState("25");
   const [mute, setMute] = useState<boolean>(false);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const location = useLocation();
 
   useEffect(() => {
     if (volume === "0") {
@@ -21,7 +23,7 @@ function Volume() {
     } else {
       setMute(false);
     }
-    dispatch(onChangeVolume(+volume))
+    dispatch(onChangeVolume(+volume));
   }, [dispatch, volume]);
   useEffect(() => {
     if (mute === true) {
@@ -37,13 +39,13 @@ function Volume() {
 
   return (
     <div className="flex items-center justify-end text-[#a7a7a7]">
-      <button>
+      <div className={`${location.pathname === "/queue" ? "text-[#1DD25E] after-icon" : ""}`}>
         <Link to="/queue">
           <BtnControl descriptions="Queue">
             <QueueIcon />
           </BtnControl>
         </Link>
-      </button>
+      </div>
       <BtnControl descriptions="Connect to Device">
         <DeviceIcon />
       </BtnControl>
