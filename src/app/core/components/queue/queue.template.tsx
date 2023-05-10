@@ -10,13 +10,14 @@ import { onChangeLoading } from "../../../redux-toolkit/slices/loadingSlice";
 import { RootState } from "../../../redux-toolkit/store";
 
 function Queue() {
+  const audioCurrent = useSelector((state: RootState) => state.song.songItem);
+  const shuffle = useSelector((state: RootState) => state.shuffle.shuffle);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [songs, setSongs] = useState<AudiosInterface[]>(Song);
   const [nowplaying, setNowplaying] = useState<AudiosInterface>(Song[0]);
   const [nextSong, setNextSong] = useState<AudiosInterface>(Song[1]);
   const [liked, setLiked] = useState<boolean>(false);
   const dispatch = useDispatch();
-  const audioCurrent = useSelector((state: RootState) => state.song.songItem);
 
   useEffect(() => {
     dispatch(onChangeSong(Song[0]));
@@ -62,7 +63,7 @@ function Queue() {
                 </h3>
               </div>
             </div>
-            <h3 className="flex items-center">{nowplaying?.title}</h3>
+            <h3 className="flex items-center">{nowplaying?.description}</h3>
             <div className="flex items-center justify-end mr-[32px]">
               <div
                 onClick={handleLiked}
@@ -78,7 +79,9 @@ function Queue() {
         <div className="playlist">
           <h3 className="text-[16px] font-bold text-[#a7a7a7] mt-[40px] mb-[8px] flex items-center">
             Next song:
-            <p className="hover:underline ml-[4px]">{nextSong.title}</p>
+            <p className="hover:underline ml-[4px]">
+              {shuffle === true ? "" : nextSong.title}
+            </p>
           </h3>
           {songs?.map((item, index) => (
             <div
@@ -100,7 +103,7 @@ function Queue() {
                   </h3>
                 </div>
               </div>
-              <h3 className="flex items-center">{item.title}</h3>
+              <h3 className="flex items-center">{item.description}</h3>
               <div className="flex items-center justify-end mr-[32px]">
                 <div
                   onClick={handleLiked}

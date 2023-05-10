@@ -14,17 +14,19 @@ import { onChangeStatus } from "../../../../redux-toolkit/slices/playingSlice";
 import { RootState } from "../../../../redux-toolkit/store";
 import { onChangeSong } from "../../../../redux-toolkit/slices/songSlice";
 import { Song } from "../../../../api/api";
+import { onChangeShuffle } from "../../../../redux-toolkit/slices/shuffleSlice";
 
 function Control() {
   const audioRef = useRef(new Audio());
+  const volume = useSelector((state: RootState) => state.song.volume);
+  const audioCurrent = useSelector((state: RootState) => state.song.songItem);
+  const shuffleState = useSelector((state: RootState) => state.shuffle.shuffle);
+
   const [range, setRange] = useState<number>(0);
   const [playing, setPlaying] = useState<boolean>(false);
-  const [shuffle, setShuffle] = useState<boolean>(true);
   const [repeat, setRepeat] = useState<boolean>(true);
   const [timeLeft, setTimeLeft] = useState("00:00");
   const [timeRight, setTimeRight] = useState("00:00");
-  const volume = useSelector((state: RootState) => state.song.volume);
-  const audioCurrent = useSelector((state: RootState) => state.song.songItem);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -51,7 +53,7 @@ function Control() {
     setPlaying(!playing);
   };
   const handleShuffle = () => {
-    setShuffle(!shuffle);
+    dispatch(onChangeShuffle(!shuffleState));
   };
   const handleRepeat = () => {
     setRepeat(!repeat);
@@ -89,13 +91,20 @@ function Control() {
   const handleEnded = () => {
     if (repeat) {
       audioRef.current.play();
+    } else {
+      handleNext();
     }
   };
   const handleNext = () => {
-    if (audioCurrent.id + 1 < Song.length) {
-      dispatch(onChangeSong(Song[audioCurrent.id + 1]));
+    let indexSong = Math.floor(Math.random() * Song.length);
+    if (shuffleState === true) {
+      dispatch(onChangeSong(Song[indexSong]));
     } else {
-      dispatch(onChangeSong(Song[0]));
+      if (audioCurrent.id + 1 < Song.length) {
+        dispatch(onChangeSong(Song[audioCurrent.id + 1]));
+      } else {
+        dispatch(onChangeSong(Song[0]));
+      }
     }
   };
   const handlePrevious = () => {
@@ -119,7 +128,7 @@ function Control() {
       <div className="text-[#ffffffb3] flex gap-[12px]">
         <div
           onClick={handleShuffle}
-          className={`${shuffle === true ? "text-[#1DD25E] after-icon" : ""}`}
+          className={`${shuffleState === true ? "text-[#1DD25E] after-icon" : ""}`}
         >
           <BtnControl descriptions="Shuffle">
             <RandomIcon />

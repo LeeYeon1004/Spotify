@@ -20,7 +20,7 @@ function Disk() {
         <h3 className="text-[#fff] text-[14px] cursor-pointer hover:underline">
           {song.title}
         </h3>
-        <p className="text-[#b3b3b3] text-[11px] cursor-pointer hover:underline">
+        <p className="text-[#b3b3b3] text-[10px] cursor-pointer hover:underline">
           {song.singer}
         </p>
       </div>
