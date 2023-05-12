@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   BackIcon,
-  ForwardIcon,
+  NextIcon,
   ShowMoreIcon,
   UserAccIcon,
 } from "../../icons/header.icons";
@@ -25,11 +25,11 @@ function Header() {
   return (
     <div className={`header-box ${navColor}`}>
       <div className="flex items-center gap-[16px]">
-        <button className="relative bg-[#000000b3] rounded-[50%] p-[4px]">
+        <button className="relative bg-[#000000b3] rounded-[50%] p-[4px] opacity-70">
           <BackIcon />
         </button>
-        <button className="relative bg-[#000000b3]  rounded-[50%] p-[4px]">
-          <ForwardIcon />
+        <button className="relative bg-[#000000b3]  rounded-[50%] p-[4px] opacity-70">
+          <NextIcon />
         </button>
       </div>
       <div className="flex items-center gap-[32px] font-bold leading-[32px]">

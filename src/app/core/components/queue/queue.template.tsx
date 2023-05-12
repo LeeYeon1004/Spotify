@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Song } from "../../../api/api";
 import { LikeIcon, PlayIcon } from "../../icons/playing.icons";
-import { LikedIcon } from "../../icons/sidebar.icons";
+import { HeartIcon } from "../../icons/sidebar.icons";
 import { Audios as AudiosInterface } from "../../models/home.interface";
 import "./queue.style.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,8 +12,6 @@ import { RootState } from "../../../redux-toolkit/store";
 function Queue() {
   const audioCurrent = useSelector((state: RootState) => state.song.songItem);
   const shuffle = useSelector((state: RootState) => state.shuffle.shuffle);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [songs, setSongs] = useState<AudiosInterface[]>(Song);
   const [nowplaying, setNowplaying] = useState<AudiosInterface>(Song[0]);
   const [nextSong, setNextSong] = useState<AudiosInterface>(Song[1]);
   const [liked, setLiked] = useState<boolean>(false);
@@ -69,7 +67,7 @@ function Queue() {
                 onClick={handleLiked}
                 className="text-[#ffffffb3] mr-[32px] hidden group-hover:block"
               >
-                {liked ? <LikedIcon /> : <LikeIcon />}
+                {liked ? <HeartIcon /> : <LikeIcon />}
               </div>
               {nowplaying?.time}
             </div>
@@ -83,7 +81,7 @@ function Queue() {
               {shuffle === true ? "" : nextSong.title}
             </p>
           </h3>
-          {songs?.map((item, index) => (
+          {Song?.map((item, index) => (
             <div
               key={index}
               onClick={() => handleGetNowplaying(index)}
@@ -109,7 +107,7 @@ function Queue() {
                   onClick={handleLiked}
                   className="text-[#ffffffb3] mr-[32px] hidden group-hover:block"
                 >
-                  {liked ? <LikedIcon /> : <LikeIcon />}
+                  {liked ? <HeartIcon /> : <LikeIcon />}
                 </div>
                 {item.time}
               </div>
