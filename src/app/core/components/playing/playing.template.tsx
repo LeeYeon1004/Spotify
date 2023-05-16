@@ -6,7 +6,7 @@ import Volume from "./volume/volume.template";
 function Playing() {
 
   return (
-    <div className="box bg-[#181818] flex items-center">
+    <div className="box flex items-center">
       <div className="w-[30%]">
         <Disk />
       </div>

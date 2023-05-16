@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { LikedIcon, LikeIcon, PicInPic } from "../../../icons/playing.icons";
-import BtnControl from "../control/button-control/button.template";
+import Tooltip from "../../tooltip/tooltip.template";
 import { useSelector } from "react-redux";
-import "./disk.style.scss"
+import "./disk.style.scss";
 
 function Disk() {
   const [liked, setLiked] = useState<boolean>(false);
@@ -13,8 +13,12 @@ function Disk() {
 
   return (
     <div className="disk flex items-center px-[16px]">
-      <div>
-        <img className={isPlaying ? `playing`: `w-[56px] h-[56px]`} src={song.img} alt="" />
+      <div className="rounded-[4px] overflow-hidden">
+        <img
+          className={isPlaying ? `playing` : `w-[56px] h-[56px]`}
+          src={song.img}
+          alt=""
+        />
       </div>
       <div className="mx-[14px]">
         <h3 className="text-[#fff] text-[14px] cursor-pointer hover:underline">
@@ -26,14 +30,20 @@ function Disk() {
       </div>
       <div className="flex items-center">
         <div onClick={handleLiked} className="text-[#ffffffb3]">
-          <BtnControl descriptions="Save to Your library">
+          <div className="group relative w-[32px] h-[32px] flex justify-center items-center">
             {liked ? <LikedIcon /> : <LikeIcon />}
-          </BtnControl>
+            <div className="hidden group-hover:flex">
+              <Tooltip descriptions="Save to Your library" />
+            </div>
+          </div>
         </div>
         <div className="text-[#ffffffb3]">
-          <BtnControl descriptions="Picture in picture">
+          <div className="group relative w-[32px] h-[32px] flex justify-center items-center">
             <PicInPic />
-          </BtnControl>
+            <div className="hidden group-hover:flex">
+              <Tooltip descriptions="Picture in picture" />
+            </div>
+          </div>
         </div>
       </div>
     </div>

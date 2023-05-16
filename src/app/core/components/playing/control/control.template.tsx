@@ -8,7 +8,7 @@ import {
   RandomIcon,
   RepeatIcon,
 } from "../../../icons/playing.icons";
-import BtnControl from "./button-control/button.template";
+import Tooltip from "../../tooltip/tooltip.template";
 import { useDispatch, useSelector } from "react-redux";
 import { onChangeStatus } from "../../../../redux-toolkit/slices/playingSlice";
 import { RootState } from "../../../../redux-toolkit/store";
@@ -128,32 +128,46 @@ function Control() {
       <div className="text-[#ffffffb3] flex gap-[12px]">
         <div
           onClick={handleShuffle}
-          className={`${shuffleState === true ? "text-[#1DD25E] after-icon" : ""}`}
+          className={`${
+            shuffleState === true ? "text-[#1DD25E] after-icon" : ""
+          }`}
         >
-          <BtnControl descriptions="Shuffle">
+          <div className="group relative w-[32px] h-[32px] flex justify-center items-center">
             <RandomIcon />
-          </BtnControl>
+            <div className="hidden group-hover:flex">
+              <Tooltip descriptions="Shuffle" />
+            </div>
+          </div>
         </div>
         <button onClick={handlePrevious}>
-          <BtnControl descriptions="Previous">
+          <div className="group relative w-[32px] h-[32px] flex justify-center items-center">
             <PrevIcon />
-          </BtnControl>
+            <div className="hidden group-hover:flex">
+              <Tooltip descriptions="Previous" />
+            </div>
+          </div>
         </button>
         <button onClick={handlePlayed} className="play-btn">
           {playing ? <PauseIcon /> : <PlayIcon />}
         </button>
         <button onClick={handleNext}>
-          <BtnControl descriptions="Next">
+          <div className="group relative w-[32px] h-[32px] flex justify-center items-center">
             <NextIcon />
-          </BtnControl>
+            <div className="hidden group-hover:flex">
+              <Tooltip descriptions="Next" />
+            </div>
+          </div>
         </button>
         <div
           onClick={handleRepeat}
           className={`${repeat === true ? "text-[#1DD25E] after-icon" : ""}`}
         >
-          <BtnControl descriptions="Repeat">
+          <div className="group relative w-[32px] h-[32px] flex justify-center items-center">
             <RepeatIcon />
-          </BtnControl>
+            <div className="hidden group-hover:flex">
+              <Tooltip descriptions="Repeat" />
+            </div>
+          </div>
         </div>
       </div>
       <div className="progress px-[12px]">

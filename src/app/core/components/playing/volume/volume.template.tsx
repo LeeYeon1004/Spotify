@@ -6,7 +6,7 @@ import {
   QueueIcon,
   SpickerIcon,
 } from "../../../icons/playing.icons";
-import BtnControl from "../control/button-control/button.template";
+import Tooltip from "../../tooltip/tooltip.template";
 import { useDispatch } from "react-redux";
 import { onChangeVolume } from "../../../../redux-toolkit/slices/songSlice";
 import { useLocation } from "react-router-dom";
@@ -39,20 +39,33 @@ function Volume() {
 
   return (
     <div className="flex items-center justify-end text-[#a7a7a7]">
-      <div className={`${location.pathname === "/queue" ? "text-[#1DD25E] after-icon" : ""}`}>
+      <div
+        className={`${
+          location.pathname === "/queue" ? "text-[#1DD25E] after-icon" : ""
+        }`}
+      >
         <Link to="/queue">
-          <BtnControl descriptions="Queue">
+          <div className="group relative w-[32px] h-[32px] flex justify-center items-center">
             <QueueIcon />
-          </BtnControl>
+            <div className="hidden group-hover:flex">
+              <Tooltip descriptions="Queue" />
+            </div>
+          </div>
         </Link>
       </div>
-      <BtnControl descriptions="Connect to Device">
+      <div className="group relative w-[32px] h-[32px] flex justify-center items-center">
         <DeviceIcon />
-      </BtnControl>
+        <div className="hidden group-hover:flex">
+          <Tooltip descriptions="Connect to Device" />
+        </div>
+      </div>
       <div onClick={handleMute}>
-        <BtnControl descriptions="Mute">
+        <div className="group relative w-[32px] h-[32px] flex justify-center items-center">
           {mute === false ? <SpickerIcon /> : <MuteIcon />}
-        </BtnControl>
+          <div className="hidden group-hover:flex">
+            <Tooltip descriptions="Mute" />
+          </div>
+        </div>
       </div>
       <input
         className="w-[93px] h-[3px]"

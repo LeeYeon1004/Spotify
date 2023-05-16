@@ -3,23 +3,29 @@ import Header from "../core/components/header/header.template";
 import Playing from "../core/components/playing/playing.template";
 import Sidebar from "../core/components/sidebar/sidebar.template";
 import Loading from "../core/components/modal/loading.template";
+import { useEffect } from "react";
+import "./main.style.scss"
 
 function HomePage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="flex w-full tracking-wide relative pb-[90px]">
+    <div className="main-home flex w-full tracking-wide pb-[90px]">
       <Loading />
-      <div>
+      <div className="sidebar">
         <Sidebar />
       </div>
-      <div className="ml-[300px] relative w-full min-h-screen bg-[#000]">
-        <div className="bg-[#121212] rounded-[8px] mt-[8px] mr-[16px]">
+      <div className="main-screen">
+        <div className="bg-[#121212] relative rounded-[8px] mr-[16px]">
           <div className="sticky top-0 z-[3]">
             <Header />
           </div>
           <Outlet />
         </div>
       </div>
-      <div className="fixed bottom-0 z-[3] w-full">
+      <div className="fixed bottom-0 z-[3] w-full bg-[#000]">
         <Playing />
       </div>
     </div>

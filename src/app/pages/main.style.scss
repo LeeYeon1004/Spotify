@@ -1,0 +1,17 @@
+.main-home{
+    background-color: #000;
+    position: relative;
+    .sidebar{
+        height: calc(100vh - 90px);
+    }
+    .main-screen{
+        position: fixed;
+        width: auto;
+        margin-left: 300px;
+        height: calc(100vh - 90px);
+        top: 8px;
+        bottom: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}

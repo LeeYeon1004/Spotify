@@ -8,18 +8,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { onChangeSong } from "../../../redux-toolkit/slices/songSlice";
 import { onChangeLoading } from "../../../redux-toolkit/slices/loadingSlice";
 import { RootState } from "../../../redux-toolkit/store";
+import GifPlaying from "../../../assets/gif/playing.gif";
 
 function Queue() {
   const audioCurrent = useSelector((state: RootState) => state.song.songItem);
   const shuffle = useSelector((state: RootState) => state.shuffle.shuffle);
-  const [nowplaying, setNowplaying] = useState<AudiosInterface>(Song[0]);
+  const isPlaying = useSelector((state: any) => state.played.played);
+  const [nowplaying, setNowplaying] = useState<AudiosInterface>(audioCurrent);
   const [nextSong, setNextSong] = useState<AudiosInterface>(Song[1]);
   const [liked, setLiked] = useState<boolean>(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(onChangeSong(Song[0]));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    window.scrollTo(0, 0);
   }, []);
   useEffect(() => {
     if (audioCurrent.id + 1 < Song.length) {
@@ -39,7 +40,7 @@ function Queue() {
 
   return (
     <div className="queue-box text-[#fff]">
-      <div className="max-w-[1955px] mt-[40px] relative">
+      <div className="mt-[40px] relative">
         <h2 className="title text-[24px] font-bold mb-[16px]">Queue</h2>
         {/* now playing */}
         <div className="now-playing">
@@ -49,12 +50,18 @@ function Queue() {
               <PlayIcon />
             </div>
             <div className="flex items-center">
-              <img
-                className="w-[40px] h-[40px] mr-[16px] object-cover"
-                src={nowplaying?.img}
-                alt=""
-              />
-              <div className="flex flex-col justify-center">
+              <div className="relative w-[40px] h-[40px]">
+                <img
+                  className="w-[full] h-[40px] object-cover"
+                  src={nowplaying?.img}
+                  alt=""
+                />
+                {isPlaying}
+                <div className={`gif-playing ${isPlaying ? "flex" : "hidden"}`}>
+                  <img className="w-[16px] h-[16px]" src={GifPlaying} alt="" />
+                </div>
+              </div>
+              <div className="flex flex-col justify-center ml-[16px]">
                 <h2 className="text-[16px]">{nowplaying?.title}</h2>
                 <h3 className="hover:underline cursor-pointer">
                   {nowplaying?.singer}

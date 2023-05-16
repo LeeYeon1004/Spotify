@@ -21,11 +21,11 @@ function Loading() {
 
   return (
     <div
-      className={`absolute top-0 left-0 z-[5] w-full h-screen ${
+      className={`fixed top-0 bottom-0 left-0 z-[5] w-full h-screen ${
         loading ? "block" : "hidden"
       }`}
     >
-      <div className="relative">
+      <div className="">
         <div className="modal-loading"></div>
         <div className="loading text-[#fff]">
           <FontAwesomeIcon icon={faSpinner} />

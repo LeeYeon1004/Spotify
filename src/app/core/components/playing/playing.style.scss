@@ -1,26 +1,7 @@
 .box {
   height: 90px;
-  border-top: 1px solid #282828;
-  .btn {
-    .descriptions {
-      position: absolute;
-      background-color: #282828;
-      border-radius: 4px;
-      justify-content: center;
-      align-items: center;
-      width: fit-content;
-      white-space: nowrap;
-      font-size: 14px;
-      top: -32px;
-      left: 50%;
-      transform: translate(-50%);
-      display: none;
-      letter-spacing: 1px;
-      font-weight: 500;
-      color: #fff;
-      box-shadow: 0 16px 24px rgb(0 0 0 / 30%), 0 6px 8px rgb(0 0 0 / 20%);
-    }
-  }
+  // border-top: 1px solid #282828;
+
   .btn-control:hover ~ .descriptions {
     display: flex;
   }
@@ -56,10 +37,4 @@
 .disk {
   letter-spacing: 1px;
   font-weight: 500;
-}
-.btn-control {
-  // opacity: 0.8;
-  &:hover {
-    opacity: 1;
-  }
 }

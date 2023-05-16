@@ -8,11 +8,13 @@ import {
 import "./header.style.scss";
 
 function Header() {
-  const [navColor, setNavColor] = useState("bg-[transparent]");
+  const [navColor, setNavColor] = useState("bg-[#121212]");
   const listenScroll = () => {
-    window.scrollY > 10
+    window.scrollY > 1
       ? setNavColor("bg-[#121212]")
       : setNavColor("transparent");
+      console.log(11111);
+      
   };
 
   useEffect(() => {
@@ -20,6 +22,7 @@ function Header() {
     return () => {
       window.removeEventListener("scroll", listenScroll);
     };
+    
   }, []);
 
   return (

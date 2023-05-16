@@ -5,19 +5,19 @@ function MainHome() {
   return (
     <div className="main-box">
       <div>
-        <Section />
+        <Section title="Trending Now" />
       </div>
       <div>
-        <Section />
+        <Section title="Your top mixes" />
       </div>
       <div>
-        <Section />
+        <Section title="Popular radio" />
       </div>
       <div>
-        <Section />
+        <Section title="Recommended for today" />
       </div>
       <div>
-        <Section />
+        <Section title="Popular new releases" />
       </div>
     </div>
   );

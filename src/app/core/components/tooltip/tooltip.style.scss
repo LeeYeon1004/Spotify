@@ -1,0 +1,19 @@
+.tooltip {
+  .descriptions {
+    position: absolute;
+    background-color: #282828;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    white-space: nowrap;
+    font-size: 14px;
+    top: -32px;
+    left: 50%;
+    transform: translate(-50%);
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #fff;
+    box-shadow: 0 16px 24px rgb(0 0 0 / 30%), 0 6px 8px rgb(0 0 0 / 20%);
+  }
+}

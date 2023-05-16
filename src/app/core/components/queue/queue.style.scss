@@ -20,7 +20,6 @@
   color: #fff;
   font-size: 14px;
   padding: 0 24px;
-  min-height: 100vh;
   animation: fadeIn ease-in 0.2s;
   -webkit-animation: fadeIn ease-in 0.2s;
   .title {
@@ -52,5 +51,16 @@
       font-size: 16px;
       color: #1db954;
     }
+  }
+  .gif-playing{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: #00000080;
+    justify-content: center;
+    align-items: center;
   }
 }

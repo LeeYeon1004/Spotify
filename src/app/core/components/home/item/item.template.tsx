@@ -8,7 +8,7 @@ function Item({ item }: { item: Audios }) {
       <div>
         <div className="relative shadow">
           <img
-            src={item.img}
+            src={item?.img}
             className="rounded-[4px] min-h-[148.88px] aspect-square"
             alt=""
           />
@@ -24,10 +24,10 @@ function Item({ item }: { item: Audios }) {
       </div>
       <div className="min-h-[62px] mt-[16px]">
         <h3 className="title-song text-[16px] text-[#fff] font-bold mb-[4px]">
-          {item.title}
+          {item?.title}
         </h3>
         <p className="descriptions text-[14px] font text-[#a7a7a7]">
-          {item.description}
+          {item?.description}
         </p>
       </div>
     </div>
