@@ -1,8 +1,16 @@
+import { useDispatch } from "react-redux";
 import { PlayIcon } from "../../../icons/home.icons";
 import { Audios } from "../../../models/home.interface";
 import "./item.style.scss";
+import { onChangeSong } from "../../../../redux-toolkit/slices/songSlice";
 
 function Item({ item }: { item: Audios }) {
+  const dispatch = useDispatch()
+
+  const handlePlay = () => {
+    dispatch(onChangeSong(item))
+  };
+
   return (
     <div className="bg-[#181818] hover-bg rounded-[4px] p-[16px] group">
       <div>
@@ -17,6 +25,7 @@ function Item({ item }: { item: Audios }) {
             opacity-0 transform translate-y-[8px] group-hover:opacity-100 group-hover:translate-y-0
             transition-all duration-200
             "
+            onClick={handlePlay}
           >
             <PlayIcon />
           </div>

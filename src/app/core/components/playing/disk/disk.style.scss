@@ -9,6 +9,14 @@
     transform: rotate(360deg);
   }
 }
+@keyframes rightToLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-300%);
+  }
+}
 .disk {
   .playing {
     width: 56px;
@@ -17,4 +25,7 @@
     animation: spinner linear 5s infinite;
     transition: all ease-in 0.2s;
   }
+  // .title{
+  //   animation: rightToLeft 4.5s linear infinite;
+  // }
 }

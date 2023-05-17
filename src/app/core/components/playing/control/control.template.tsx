@@ -43,7 +43,7 @@ function Control() {
       audioRef.current.pause();
     }
     dispatch(onChangeStatus(playing));
-  }, [dispatch, playing, audioCurrent]);
+  }, [dispatch, playing]);
 
   useEffect(() => {
     audioRef.current.volume = volume / 100;
