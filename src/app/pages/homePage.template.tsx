@@ -18,7 +18,7 @@ function HomePage() {
         <Sidebar />
       </div>
       <div className="main-screen">
-        <div className="bg-[#121212] relative rounded-[8px] mr-[16px]">
+        <div className="bg-[#121212] relative rounded-[8px] mr-[12px]">
           <div className="sticky top-0 z-[3]">
             <Header />
           </div>

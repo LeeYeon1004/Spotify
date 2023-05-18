@@ -13,8 +13,6 @@ function Header() {
     window.scrollY > 1
       ? setNavColor("bg-[#121212]")
       : setNavColor("transparent");
-      console.log(11111);
-      
   };
 
   useEffect(() => {

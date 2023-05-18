@@ -1,5 +1,5 @@
 import Section from "./sections/sections.template";
-import "./home.style.scss";
+import "./dashboard.style.scss";
 
 function MainHome() {
   return (
