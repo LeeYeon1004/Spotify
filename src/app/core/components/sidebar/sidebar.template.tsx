@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import {
   Enlarge,
-  HeartIcon,
   HomeIcon,
   HomeIconChecked,
   InstallIcon,
@@ -12,6 +11,7 @@ import {
 
 import "./sidebar.style.scss";
 import { CreateIcon } from "../../icons/sidebar.icons";
+import { LikeIcon } from "../../icons/playing.icons";
 
 function Sidebar() {
   const location = useLocation();
@@ -79,7 +79,7 @@ function Sidebar() {
 
             <div className="liked-box flex items-center py-[8px]">
               <div className="liked-icon">
-                <HeartIcon />
+                <LikeIcon />
               </div>
               <div>
                 <p className="text-[14px] font-semibold">Liked Songs</p>
