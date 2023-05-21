@@ -21,7 +21,7 @@ function Sidebar() {
       <div className="relative text-[15px] text-[#b3b3b3] text-left font-semibold w-full h-full flex flex-col">
         {/* -------- */}
         <div className="mt-[8px] px-[8px]">
-          <ul className="bg-[#121212] rounded-[8px] px-[16px] py-[8px]">
+          <ul className="bg-[#ffffff1a] rounded-[8px] px-[16px] py-[8px]">
             <Link to="/home">
               <li>
                 {location.pathname === "/home" ? (
@@ -46,7 +46,7 @@ function Sidebar() {
         </div>
         {/* ---------- */}
         <div className="mt-[8px] text-[#fff] px-[8px] flex-1 flex">
-          <div className="bg-[#121212] rounded-[8px] px-[16px] py-[12px] flex-1">
+          <div className="bg-[#ffffff1a] rounded-[8px] px-[16px] py-[12px] flex-1">
             <div className="flex justify-between items-center">
               <div className="opacity-70 hover:opacity-100 transition-opacity pl-[8px]">
                 <Link to="/">

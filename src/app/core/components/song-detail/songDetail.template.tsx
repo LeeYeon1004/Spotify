@@ -8,6 +8,7 @@ import { LikeIcon, PlayIcon } from "../../icons/playing.icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import GifPlaying from "../../../assets/gif/playing.gif";
+import Loading from "../modal/loading.template";
 
 function SongDetail() {
   const optionCurrent = useSelector(
@@ -20,6 +21,9 @@ function SongDetail() {
 
   return (
     <div className="song-detail flex gap-[28px] px-[32px] mt-[20px]">
+      <div>
+        <Loading />
+      </div>
       <div className="group">
         <div>
           <img

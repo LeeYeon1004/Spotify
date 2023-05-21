@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Song } from "../../../api/api";
-import { LikeIcon, PlayIcon } from "../../icons/playing.icons";
-import { HeartIcon } from "../../icons/sidebar.icons";
+import { PlayIcon } from "../../icons/playing.icons";
 import { Audios as AudiosInterface } from "../../models/home.interface";
 import "./queue.style.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +8,7 @@ import { onChangeSong } from "../../../redux-toolkit/slices/songSlice";
 import { onChangeLoading } from "../../../redux-toolkit/slices/loadingSlice";
 import { RootState } from "../../../redux-toolkit/store";
 import GifPlaying from "../../../assets/gif/playing.gif";
+import SetLiked from "./set-like/setLike.template";
 
 function Queue() {
   const audioCurrent = useSelector((state: RootState) => state.song.songItem);
@@ -16,7 +16,6 @@ function Queue() {
   const isPlaying = useSelector((state: any) => state.played.played);
   const [nowplaying, setNowplaying] = useState<AudiosInterface>(audioCurrent);
   const [nextSong, setNextSong] = useState<AudiosInterface>(Song[1]);
-  const [liked, setLiked] = useState<boolean>(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,8 +34,6 @@ function Queue() {
     dispatch(onChangeSong(Song[index]));
     dispatch(onChangeLoading(true));
   };
-
-  const handleLiked = () => setLiked(!liked);
 
   return (
     <div className="queue-box text-[#fff]">
@@ -70,12 +67,7 @@ function Queue() {
             </div>
             <h3 className="flex items-center">{nowplaying?.description}</h3>
             <div className="flex items-center justify-end mr-[32px]">
-              <div
-                onClick={handleLiked}
-                className="text-[#ffffffb3] mr-[32px] hidden group-hover:block"
-              >
-                {liked ? <HeartIcon /> : <LikeIcon />}
-              </div>
+              <SetLiked />
               {nowplaying?.time}
             </div>
           </div>
@@ -89,13 +81,12 @@ function Queue() {
             </p>
           </h3>
           {Song?.map((item, index) => (
-            <div
-              key={index}
-              onClick={() => handleGetNowplaying(index)}
-              className="song-item group"
-            >
-              <div className="text-[#fff] flex items-center">{index + 1}</div>
-              <div className="flex items-center">
+            <div key={index} className="song-item group">
+              <span className="text-[#fff] flex items-center">{index + 1}</span>
+              <div
+                onClick={() => handleGetNowplaying(index)}
+                className="flex items-center"
+              >
                 <img
                   className="w-[40px] h-[40px] mr-[16px] object-cover"
                   src={item.img}
@@ -110,12 +101,7 @@ function Queue() {
               </div>
               <h3 className="flex items-center">{item.description}</h3>
               <div className="flex items-center justify-end mr-[32px]">
-                <div
-                  onClick={handleLiked}
-                  className="text-[#ffffffb3] mr-[32px] hidden group-hover:block"
-                >
-                  {liked ? <HeartIcon /> : <LikeIcon />}
-                </div>
+                <SetLiked />
                 {item.time}
               </div>
             </div>
