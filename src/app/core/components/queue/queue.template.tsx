@@ -42,32 +42,42 @@ function Queue() {
         {/* now playing */}
         <div className="now-playing">
           <h3 className="text-[16px] font-bold text-[#a7a7a7]">Now playing</h3>
-          <div className="song-item group">
-            <div className="text-[#fff] flex items-center">
-              <PlayIcon />
-            </div>
-            <div className="flex items-center">
-              <div className="relative w-[40px] h-[40px]">
-                <img
-                  className="w-[full] h-[40px] object-cover"
-                  src={nowplaying?.img}
-                  alt=""
-                />
-                {isPlaying}
-                <div className={`gif-playing ${isPlaying ? "flex" : "hidden"}`}>
-                  <img className="w-[16px] h-[16px]" src={GifPlaying} alt="" />
+          <div className="flex items-center">
+            <div className="song-item group flex-1">
+              <div className="text-[#fff] flex items-center">
+                <PlayIcon />
+              </div>
+              <div className="flex items-center">
+                <div className="relative w-[40px] h-[40px]">
+                  <img
+                    className="w-[full] h-[40px] object-cover"
+                    src={nowplaying?.img}
+                    alt=""
+                  />
+                  {isPlaying}
+                  <div
+                    className={`gif-playing ${isPlaying ? "flex" : "hidden"}`}
+                  >
+                    <img
+                      className="w-[16px] h-[16px]"
+                      src={GifPlaying}
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div className="flex flex-col justify-center ml-[16px]">
+                  <h2 className="text-[16px]">{nowplaying?.title}</h2>
+                  <h3 className="hover:underline cursor-pointer">
+                    {nowplaying?.singer}
+                  </h3>
                 </div>
               </div>
-              <div className="flex flex-col justify-center ml-[16px]">
-                <h2 className="text-[16px]">{nowplaying?.title}</h2>
-                <h3 className="hover:underline cursor-pointer">
-                  {nowplaying?.singer}
-                </h3>
-              </div>
+              <h3 className="flex items-center">{nowplaying?.description}</h3>
             </div>
-            <h3 className="flex items-center">{nowplaying?.description}</h3>
             <div className="flex items-center justify-end mr-[32px]">
-              <SetLiked />
+              <span>
+                <SetLiked />
+              </span>
               {nowplaying?.time}
             </div>
           </div>
@@ -81,27 +91,34 @@ function Queue() {
             </p>
           </h3>
           {Song?.map((item, index) => (
-            <div key={index} className="song-item group">
-              <span className="text-[#fff] flex items-center">{index + 1}</span>
+            <div className="group flex items-center hover:bg-[#ffffff1a] text-[#fff] rounded-[4px]">
               <div
+                key={index}
                 onClick={() => handleGetNowplaying(index)}
-                className="flex items-center"
+                className="song-item"
               >
-                <img
-                  className="w-[40px] h-[40px] mr-[16px] object-cover"
-                  src={item.img}
-                  alt=""
-                />
-                <div className="flex flex-col justify-center">
-                  <h2 className="text-[16px] text-[#fff]">{item.title}</h2>
-                  <h3 className="hover:underline cursor-pointer">
-                    {item.singer}
-                  </h3>
+                <span className="text-[#fff] flex items-center">
+                  {index + 1}
+                </span>
+                <div className="flex items-center">
+                  <img
+                    className="w-[40px] h-[40px] mr-[16px] object-cover"
+                    src={item.img}
+                    alt=""
+                  />
+                  <div className="flex flex-col justify-center">
+                    <h2 className="text-[16px] text-[#fff]">{item.title}</h2>
+                    <h3 className="hover:underline cursor-pointer">
+                      {item.singer}
+                    </h3>
+                  </div>
                 </div>
+                <h3 className="flex items-center">{item.description}</h3>
               </div>
-              <h3 className="flex items-center">{item.description}</h3>
-              <div className="flex items-center justify-end mr-[32px]">
-                <SetLiked />
+              <div className="flex items-center justify-end mr-[32px] relative">
+                <span className="opacity-0 group-hover:opacity-100">
+                  <SetLiked />
+                </span>
                 {item.time}
               </div>
             </div>

@@ -9,7 +9,7 @@ function SetLiked() {
   return (
     <div
       onClick={handleLiked}
-      className="text-[#ffffffb3] mr-[32px] hidden group-hover:block"
+      className="text-[#ffffffb3] mr-[32px]"
     >
       {liked ? <HeartIcon /> : <LikeIcon />}
     </div>
