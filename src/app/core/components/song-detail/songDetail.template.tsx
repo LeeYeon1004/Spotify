@@ -1,36 +1,54 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux-toolkit/store";
 import TableList from "../table-list/tableList.template";
 import "./songDetail.style.scss";
-import { useState } from "react";
-import { HeartIcon } from "../../icons/sidebar.icons";
-import { LikeIcon, PlayIcon } from "../../icons/playing.icons";
+import { PlayIcon } from "../../icons/playing.icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import GifPlaying from "../../../assets/gif/playing.gif";
 import Loading from "../modal/loading.template";
+import { onChangeSong } from "../../../redux-toolkit/slices/songSlice";
+import SetLiked from "../set-like/setLike.template";
+import { onChangeStatus } from "../../../redux-toolkit/slices/playingSlice";
 
 function SongDetail() {
   const optionCurrent = useSelector(
     (state: RootState) => state.songDetail.option
   );
+  const audioCurrent = useSelector((state: RootState) => state.song.songItem);
   const isPlaying = useSelector((state: RootState) => state.played.played);
-  const [liked, setLiked] = useState<boolean>(false);
+  const dispatch = useDispatch();
 
-  const handleLiked = () => setLiked(!liked);
+  const handlePlayed = () => {
+    dispatch(onChangeSong(optionCurrent));
+    if (isPlaying) {
+      dispatch(onChangeStatus(false));
+    } else {
+      dispatch(onChangeStatus(true));
+    }
+  };
 
   return (
     <div className="song-detail flex gap-[28px] px-[32px] mt-[20px]">
       <div>
         <Loading />
       </div>
-      <div className="group">
-        <div>
+      <div className="group fixed z-10">
+        <div className="overflow-hidden rounded-[4px] relative">
           <img
-            className="object-cover aspect-square w-[300px] rounded-[4px] group-hover:scale-img"
+            className="scale-img object-cover aspect-square w-[300px] rounded-[4px] group-hover:scale-img"
             src={optionCurrent.img}
             alt=""
           />
+          <div
+            className={`gif-playing ${
+              isPlaying && audioCurrent === optionCurrent ? "flex" : "hidden"
+            }`}
+          >
+            <div className="border-gif">
+              <img className="w-[24px] h-[24px]" src={GifPlaying} alt="" />
+            </div>
+          </div>
         </div>
         <div className="mt-[12px] text-center">
           <h2 className="text-[#fff] text-[18px] font-semibold">
@@ -38,15 +56,15 @@ function SongDetail() {
           </h2>
           <p className="text-[12px] text-[#ffffff80]">{optionCurrent.singer}</p>
           <div className="mt-[16px]">
-            <button className="text-[13px] text-[#fff] font-medium bg-[#1dd25e] px-[24px] py-[6px] rounded-[92px]">
-              {isPlaying ? "PAUSE" : "PLAY"}
+            <button
+              className="text-[13px] text-[#fff] font-medium bg-[#1dd25e] px-[24px] py-[6px] rounded-[92px]"
+              onClick={handlePlayed}
+            >
+              {isPlaying && audioCurrent === optionCurrent ? "PAUSE" : "PLAY"}
             </button>
             <div className="mt-[16px] flex gap-[12px] justify-center">
-              <button
-                onClick={handleLiked}
-                className="bg-[#ffffff1a] text-[#cdccce] p-[10px] rounded-[100%]"
-              >
-                {liked ? <HeartIcon /> : <LikeIcon />}
+              <button className="bg-[#ffffff1a] text-[#cdccce] p-[10px] rounded-[100%]">
+                <SetLiked />
               </button>
               <button className="bg-[#ffffff1a] text-[#cdccce] px-[11px] py-[6px] rounded-[100%]">
                 <FontAwesomeIcon icon={faEllipsis} />
@@ -55,11 +73,13 @@ function SongDetail() {
           </div>
         </div>
       </div>
-      <div className="flex-1">
+      <div className="pl-[300px] flex-1">
         <div>
           <div className="now-playing">
-            <h3 className="text-[16px] font-bold text-[#a7a7a7] my-[10px]">Song</h3>
-            <div className="song-item group">
+            <h3 className="text-[16px] font-bold text-[#a7a7a7] my-[10px]">
+              Song
+            </h3>
+            <div className="song-item group" onClick={handlePlayed}>
               <div className="text-[#fff] flex items-center">
                 <PlayIcon />
               </div>
@@ -70,9 +90,12 @@ function SongDetail() {
                     src={optionCurrent?.img}
                     alt=""
                   />
-                  {isPlaying}
                   <div
-                    className={`gif-playing ${isPlaying ? "flex" : "hidden"}`}
+                    className={`gif-playing ${
+                      isPlaying && audioCurrent === optionCurrent
+                        ? "flex"
+                        : "hidden"
+                    }`}
                   >
                     <img
                       className="w-[16px] h-[16px]"
@@ -92,18 +115,17 @@ function SongDetail() {
                 {optionCurrent?.description}
               </h3>
               <div className="flex items-center justify-end mr-[32px]">
-                <div
-                  onClick={handleLiked}
-                  className="text-[#ffffffb3] mr-[32px] hidden group-hover:block"
-                >
-                  {liked ? <HeartIcon /> : <LikeIcon />}
+                <div className="mr-[32px]">
+                  <SetLiked />
                 </div>
                 {optionCurrent?.time}
               </div>
             </div>
           </div>
           <div className="mt-[20px]">
-            <h3 className="text-[14px] mb-[8px] text-[#fff] leading-[20px] font-semibold">Information</h3>
+            <h3 className="text-[14px] mb-[8px] text-[#fff] leading-[20px] font-semibold">
+              Information
+            </h3>
             <div className="text-[13px] flex items-center gap-[16px]">
               <div className="text-[#ffffff80] flex flex-col gap-[8px]">
                 <span>Album</span>
@@ -116,7 +138,7 @@ function SongDetail() {
             </div>
           </div>
         </div>
-        <div>
+        <div className="mt-[40px]">
           <TableList />
         </div>
       </div>

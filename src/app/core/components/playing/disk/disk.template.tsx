@@ -1,15 +1,21 @@
 import { useState } from "react";
 import { LikedIcon, LikeIcon, PicInPic } from "../../../icons/playing.icons";
 import Tooltip from "../../tooltip/tooltip.template";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./disk.style.scss";
+import { Link } from "react-router-dom";
+import { onChangeOption } from "../../../../redux-toolkit/slices/songDetailSlice";
 
 function Disk() {
   const [liked, setLiked] = useState<boolean>(false);
   const song = useSelector((state: any) => state.song.songItem);
   const isPlaying = useSelector((state: any) => state.played.played);
+  const dispatch = useDispatch();
 
   const handleLiked = () => setLiked(!liked);
+  const changeOption = () => {
+    dispatch(onChangeOption(song));
+  };
 
   return (
     <div className="disk flex items-center px-[16px]">
@@ -20,14 +26,16 @@ function Disk() {
           alt=""
         />
       </div>
-      <div className="mx-[14px]">
-        <h3 className="title text-[#fff] whitespace-nowrap text-[13px] cursor-pointer hover:underline">
-          {song.title}
-        </h3>
-        <p className="text-[#b3b3b3] text-[10px] cursor-pointer hover:underline">
-          {song.singer}
-        </p>
-      </div>
+      <Link to={`/song-detail/${song.title}`} onClick={changeOption}>
+        <div className="mx-[14px]">
+          <h3 className="title text-[#fff] whitespace-nowrap text-[13px] cursor-pointer hover:underline">
+            {song.title}
+          </h3>
+          <p className="text-[#b3b3b3] text-[10px] cursor-pointer hover:underline">
+            {song.singer}
+          </p>
+        </div>
+      </Link>
       <div className="flex items-center">
         <div onClick={handleLiked} className="text-[#ffffffb3]">
           <div className="group relative w-[32px] h-[32px] flex justify-center items-center">

@@ -1,0 +1,9 @@
+.table-list{
+    .music-item{
+        border-bottom: 1px solid #ffffff1a;
+        padding: 10px;
+        &:hover{
+            background-color: #ffffff1a;
+        }
+    }
+}

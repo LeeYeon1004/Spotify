@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { LikeIcon } from "../../../icons/playing.icons";
-import { HeartIcon } from "../../../icons/sidebar.icons";
+import { LikeIcon } from "../../icons/playing.icons";
+import { HeartIcon } from "../../icons/sidebar.icons";
 
 function SetLiked() {
   const [liked, setLiked] = useState<boolean>(false);
@@ -9,7 +9,7 @@ function SetLiked() {
   return (
     <div
       onClick={handleLiked}
-      className="text-[#ffffffb3] mr-[32px]"
+      className="text-[#ffffffb3]"
     >
       {liked ? <HeartIcon /> : <LikeIcon />}
     </div>

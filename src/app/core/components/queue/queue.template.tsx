@@ -8,7 +8,8 @@ import { onChangeSong } from "../../../redux-toolkit/slices/songSlice";
 import { onChangeLoading } from "../../../redux-toolkit/slices/loadingSlice";
 import { RootState } from "../../../redux-toolkit/store";
 import GifPlaying from "../../../assets/gif/playing.gif";
-import SetLiked from "./set-like/setLike.template";
+import SetLiked from "../set-like/setLike.template";
+import { onChangeStatus } from "../../../redux-toolkit/slices/playingSlice";
 
 function Queue() {
   const audioCurrent = useSelector((state: RootState) => state.song.songItem);
@@ -32,6 +33,7 @@ function Queue() {
   const handleGetNowplaying = (index: number) => {
     setNowplaying(Song[index]);
     dispatch(onChangeSong(Song[index]));
+    dispatch(onChangeStatus(true));
     dispatch(onChangeLoading(true));
   };
 
@@ -75,7 +77,7 @@ function Queue() {
               <h3 className="flex items-center">{nowplaying?.description}</h3>
             </div>
             <div className="flex items-center justify-end mr-[32px]">
-              <span>
+              <span className="mr-[32px]">
                 <SetLiked />
               </span>
               {nowplaying?.time}
@@ -91,9 +93,11 @@ function Queue() {
             </p>
           </h3>
           {Song?.map((item, index) => (
-            <div className="group flex items-center hover:bg-[#ffffff1a] text-[#fff] rounded-[4px]">
+            <div
+              key={index}
+              className="group flex items-center hover:bg-[#ffffff1a] text-[#fff] rounded-[4px]"
+            >
               <div
-                key={index}
                 onClick={() => handleGetNowplaying(index)}
                 className="song-item"
               >
@@ -116,7 +120,7 @@ function Queue() {
                 <h3 className="flex items-center">{item.description}</h3>
               </div>
               <div className="flex items-center justify-end mr-[32px] relative">
-                <span className="opacity-0 group-hover:opacity-100">
+                <span className="opacity-0 group-hover:opacity-100 mr-[32px]">
                   <SetLiked />
                 </span>
                 {item.time}

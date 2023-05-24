@@ -9,6 +9,10 @@
   }
 }
 .scale-img {
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.15);
+  }
 }
 .song-detail {
   .now-playing {
@@ -46,5 +50,13 @@
     background-color: #ffffff1a;
     cursor: default;
     color: #fff;
+  }
+  .border-gif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #1db954;
+    border-radius: 100%;
+    padding: 8px;
   }
 }

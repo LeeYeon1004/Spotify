@@ -21,9 +21,9 @@ function Control() {
   const volume = useSelector((state: RootState) => state.song.volume);
   const audioCurrent = useSelector((state: RootState) => state.song.songItem);
   const shuffleState = useSelector((state: RootState) => state.shuffle.shuffle);
+  const played = useSelector((state: RootState) => state.played.played)
 
   const [range, setRange] = useState<number>(0);
-  const [playing, setPlaying] = useState<boolean>(false);
   const [repeat, setRepeat] = useState<boolean>(true);
   const [timeLeft, setTimeLeft] = useState("00:00");
   const [timeRight, setTimeRight] = useState("00:00");
@@ -33,24 +33,20 @@ function Control() {
     setTimeout(() => {
       handleProgress();
     }, 200);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [audioCurrent]);
-
-  useEffect(() => {
-    if (playing) {
+    if (played) {
       audioRef.current.play();
     } else {
       audioRef.current.pause();
     }
-    dispatch(onChangeStatus(playing));
-  }, [dispatch, playing]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [audioCurrent, played]);
 
   useEffect(() => {
     audioRef.current.volume = volume / 100;
   }, [volume]);
 
   const handlePlayed = () => {
-    setPlaying(!playing);
+    dispatch(onChangeStatus(!played))
   };
   const handleShuffle = () => {
     dispatch(onChangeShuffle(!shuffleState));
@@ -148,7 +144,7 @@ function Control() {
           </div>
         </button>
         <button onClick={handlePlayed} className="play-btn">
-          {playing ? <PauseIcon /> : <PlayIcon />}
+          {played ? <PauseIcon /> : <PlayIcon />}
         </button>
         <button onClick={handleNext}>
           <div className="group relative w-[32px] h-[32px] flex justify-center items-center">
