@@ -16,12 +16,12 @@ function TableList() {
   const isPlayed = useSelector((state: RootState) => state.played.played);
 
   useEffect(() => {
-    dispatch(onChangeStatus(true));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [audioCurrent]);
+    window.scrollTo(0, 0);
+  }, []);
 
   const handlePlayed = (i: number) => {
     dispatch(onChangeSong(Song[i]));
+    dispatch(onChangeStatus(true));
   };
   return (
     <div className="table-list text-[#fff] w-full">

@@ -4,7 +4,7 @@ import TableList from "../table-list/tableList.template";
 import "./songDetail.style.scss";
 import { PlayIcon } from "../../icons/playing.icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEllipsis } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlay, faEllipsis } from "@fortawesome/free-solid-svg-icons";
 import GifPlaying from "../../../assets/gif/playing.gif";
 import Loading from "../modal/loading.template";
 import { onChangeSong } from "../../../redux-toolkit/slices/songSlice";
@@ -21,11 +21,10 @@ function SongDetail() {
 
   const handlePlayed = () => {
     dispatch(onChangeSong(optionCurrent));
-    if (isPlaying) {
-      dispatch(onChangeStatus(false));
-    } else {
-      dispatch(onChangeStatus(true));
-    }
+    dispatch(onChangeStatus(true));
+  };
+  const handlePaused = () => {
+    dispatch(onChangeStatus(false));
   };
 
   return (
@@ -33,10 +32,22 @@ function SongDetail() {
       <div>
         <Loading />
       </div>
-      <div className="group fixed z-10">
-        <div className="overflow-hidden rounded-[4px] relative">
+      <div className="fixed z-10">
+        <div
+          className="overflow-hidden rounded-[4px] relative group"
+          onClick={handlePlayed}
+        >
+          <div className={`modal-played group-hover:block hidden`}>
+            <span
+              className={`${
+                isPlaying && audioCurrent === optionCurrent ? "hidden" : ""
+              }`}
+            >
+              <FontAwesomeIcon icon={faCirclePlay} />
+            </span>
+          </div>
           <img
-            className="scale-img object-cover aspect-square w-[300px] rounded-[4px] group-hover:scale-img"
+            className="scale-img object-cover aspect-square w-[300px] rounded-[4px] group-hover:opacity-50"
             src={optionCurrent.img}
             alt=""
           />
@@ -56,12 +67,21 @@ function SongDetail() {
           </h2>
           <p className="text-[12px] text-[#ffffff80]">{optionCurrent.singer}</p>
           <div className="mt-[16px]">
-            <button
-              className="text-[13px] text-[#fff] font-medium bg-[#1dd25e] px-[24px] py-[6px] rounded-[92px]"
-              onClick={handlePlayed}
-            >
-              {isPlaying && audioCurrent === optionCurrent ? "PAUSE" : "PLAY"}
-            </button>
+            {isPlaying && audioCurrent === optionCurrent ? (
+              <button
+                className="text-[13px] text-[#fff] font-medium bg-[#1dd25e] px-[24px] py-[6px] rounded-[92px]"
+                onClick={handlePaused}
+              >
+                PAUSE
+              </button>
+            ) : (
+              <button
+                className="text-[13px] text-[#fff] font-medium bg-[#1dd25e] px-[24px] py-[6px] rounded-[92px]"
+                onClick={handlePlayed}
+              >
+                PLAY
+              </button>
+            )}
             <div className="mt-[16px] flex gap-[12px] justify-center">
               <button className="bg-[#ffffff1a] text-[#cdccce] p-[10px] rounded-[100%]">
                 <SetLiked />
