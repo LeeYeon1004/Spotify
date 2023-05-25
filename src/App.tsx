@@ -1,10 +1,11 @@
 import "./App.css";
-import HomePage from "./app/pages/homePage.template";
+import HomePage from "./app/pages/home/homePage.template";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./app/core/components/dashboard/dashboard.template";
-import Queue from "./app/core/components/queue/queue.template";
-import Search from "./app/core/components/search/search.template";
+import Queue from "./app/pages/queue/queue.template";
+import Search from "./app/pages/search/search.template";
 import SongDetail from "./app/core/components/song-detail/songDetail.template";
+import PlayList from "./app/pages/playlist/playList.template";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/queue" element={<Queue />} />
             <Route path="/search" element={<Search />} />
             <Route path="/song-detail/:slugAudio" element={<SongDetail />} />
+            <Route path="/playlist" element={<PlayList />} />
           </Route>
         </Routes>
       </div>

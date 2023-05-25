@@ -1,6 +1,7 @@
 .main-home{
     background-color: #000;
     position: relative;
+    overflow: hidden;
     .sidebar{
         height: calc(100vh - 90px);
     }

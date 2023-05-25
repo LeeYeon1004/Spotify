@@ -10,6 +10,7 @@ import Loading from "../modal/loading.template";
 import { onChangeSong } from "../../../redux-toolkit/slices/songSlice";
 import SetLiked from "../set-like/setLike.template";
 import { onChangeStatus } from "../../../redux-toolkit/slices/playingSlice";
+import { useEffect } from "react";
 
 function SongDetail() {
   const optionCurrent = useSelector(
@@ -19,6 +20,9 @@ function SongDetail() {
   const isPlaying = useSelector((state: RootState) => state.played.played);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const handlePlayed = () => {
     dispatch(onChangeSong(optionCurrent));
     dispatch(onChangeStatus(true));

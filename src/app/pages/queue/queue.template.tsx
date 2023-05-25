@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import { Song } from "../../../api/api";
-import { PlayIcon } from "../../icons/playing.icons";
-import { Audios as AudiosInterface } from "../../models/home.interface";
+import { Song } from "../../api/api";
+import { PlayIcon } from "../../core/icons/playing.icons";
+import { Audios as AudiosInterface } from "../../core/models/home.interface";
 import "./queue.style.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { onChangeSong } from "../../../redux-toolkit/slices/songSlice";
-import { onChangeLoading } from "../../../redux-toolkit/slices/loadingSlice";
-import { RootState } from "../../../redux-toolkit/store";
-import GifPlaying from "../../../assets/gif/playing.gif";
-import SetLiked from "../set-like/setLike.template";
-import { onChangeStatus } from "../../../redux-toolkit/slices/playingSlice";
+import { onChangeSong } from "../../redux-toolkit/slices/songSlice";
+import { onChangeLoading } from "../../redux-toolkit/slices/loadingSlice";
+import { RootState } from "../../redux-toolkit/store";
+import GifPlaying from "../../assets/gif/playing.gif";
+import SetLiked from "../../core/components/set-like/setLike.template";
+import { onChangeStatus } from "../../redux-toolkit/slices/playingSlice";
 
 function Queue() {
   const audioCurrent = useSelector((state: RootState) => state.song.songItem);

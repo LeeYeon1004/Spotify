@@ -27,7 +27,7 @@ function Section({title}: {title: string}) {
         <h2 className="text-[#fff] text-[24px] font-bold tracking-[-1px] cursor-pointer hover:underline">
           {title}
         </h2>
-        <Link to="">
+        <Link to="/queue">
           <p className="text-[#b3b3b3] font-bold text-[12px] cursor-pointer hover:underline">
             SEE ALL
           </p>
