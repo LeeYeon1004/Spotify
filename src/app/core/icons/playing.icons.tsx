@@ -1,4 +1,4 @@
-export const LikeIcon = () => (
+export const DisLikedIcon = () => (
   <svg
     role="img"
     height="16"

@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./app/core/components/dashboard/dashboard.template";
 import Queue from "./app/pages/queue/queue.template";
 import Search from "./app/pages/search/search.template";
-import SongDetail from "./app/core/components/song-detail/songDetail.template";
+import SongDetail from "./app/pages/song-detail/songDetail.template";
 import PlayList from "./app/pages/playlist/playList.template";
 
 function App() {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LikedIcon, LikeIcon, PicInPic } from "../../../icons/playing.icons";
+import { LikedIcon, DisLikedIcon, PicInPic } from "../../../icons/playing.icons";
 import Tooltip from "../../tooltip/tooltip.template";
 import { useDispatch, useSelector } from "react-redux";
 import "./disk.style.scss";
@@ -39,7 +39,7 @@ function Disk() {
       <div className="flex items-center">
         <div onClick={handleLiked} className="text-[#ffffffb3]">
           <div className="group relative w-[32px] h-[32px] flex justify-center items-center">
-            {liked ? <LikedIcon /> : <LikeIcon />}
+            {liked ? <LikedIcon /> : <DisLikedIcon />}
             <div className="hidden group-hover:flex">
               <Tooltip descriptions="Save to Your library" />
             </div>

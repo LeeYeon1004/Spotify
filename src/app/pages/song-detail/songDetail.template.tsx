@@ -1,15 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../redux-toolkit/store";
-import TableList from "../table-list/tableList.template";
+import { RootState } from "../../redux-toolkit/store";
+import TableList from "../../core/components/table-list/tableList.template";
 import "./songDetail.style.scss";
-import { PlayIcon } from "../../icons/playing.icons";
+import { PlayIcon } from "../../core/icons/playing.icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay, faEllipsis } from "@fortawesome/free-solid-svg-icons";
-import GifPlaying from "../../../assets/gif/playing.gif";
-import Loading from "../modal/loading.template";
-import { onChangeSong } from "../../../redux-toolkit/slices/songSlice";
-import SetLiked from "../set-like/setLike.template";
-import { onChangeStatus } from "../../../redux-toolkit/slices/playingSlice";
+import GifPlaying from "../../assets/gif/playing.gif";
+import Loading from "../../core/components/modal/loading.template";
+import { onChangeSong } from "../../redux-toolkit/slices/songSlice";
+import SetLiked from "../../core/components/set-like/setLike.template";
+import { onChangeStatus } from "../../redux-toolkit/slices/playingSlice";
 import { useEffect } from "react";
 
 function SongDetail() {
@@ -88,7 +88,7 @@ function SongDetail() {
             )}
             <div className="mt-[16px] flex gap-[12px] justify-center">
               <button className="bg-[#ffffff1a] text-[#cdccce] p-[10px] rounded-[100%]">
-                <SetLiked />
+                <SetLiked itemSong={optionCurrent} />
               </button>
               <button className="bg-[#ffffff1a] text-[#cdccce] px-[11px] py-[6px] rounded-[100%]">
                 <FontAwesomeIcon icon={faEllipsis} />
@@ -140,7 +140,7 @@ function SongDetail() {
               </h3>
               <div className="flex items-center justify-end mr-[32px]">
                 <div className="mr-[32px]">
-                  <SetLiked />
+                  <SetLiked itemSong={optionCurrent} />
                 </div>
                 {optionCurrent?.time}
               </div>

@@ -9,6 +9,7 @@ import { onChangeSong } from "../../../redux-toolkit/slices/songSlice";
 import GifPlaying from "../../../assets/gif/playing.gif";
 import { RootState } from "../../../redux-toolkit/store";
 import { onChangeStatus } from "../../../redux-toolkit/slices/playingSlice";
+import { Audios } from "../../models/home.interface";
 
 function TableList() {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ function TableList() {
         Maybe you are interested:
       </h2>
       <div>
-        {Song.map((item, index) => (
+        {Song.map((item: Audios, index) => (
           <div
             key={index}
             className="music-item flex items-center text-[12px] text-[#ffffff80] w-full group"
@@ -72,7 +73,7 @@ function TableList() {
               <div>{item.description}</div>
               <div className="flex items-center justify-end mr-[32px] relative">
                 <span className="opacity-0 group-hover:opacity-100 mr-[32px]">
-                  <SetLiked />
+                  <SetLiked itemSong={item} />
                 </span>
                 {item.time}
               </div>

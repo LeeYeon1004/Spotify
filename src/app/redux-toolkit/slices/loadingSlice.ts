@@ -13,7 +13,7 @@ export const loadingSlice = createSlice({
   name: "loadingSlice",
   initialState,
   reducers: {
-    onChangeLoading: (state, action: PayloadAction<any>) => {
+    onChangeLoading: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload;
     },
     

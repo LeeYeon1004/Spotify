@@ -5,12 +5,16 @@ import "./item.style.scss";
 import { onChangeSong } from "../../../../redux-toolkit/slices/songSlice";
 import { Link } from "react-router-dom";
 import { onChangeOption } from "../../../../redux-toolkit/slices/songDetailSlice";
+import { onChangeStatus } from "../../../../redux-toolkit/slices/playingSlice";
+import { onChangeLoading } from "../../../../redux-toolkit/slices/loadingSlice";
 
 function Item({ item }: { item: Audios }) {
   const dispatch = useDispatch();
 
   const handlePlay = () => {
     dispatch(onChangeSong(item));
+    dispatch(onChangeStatus(true));
+    dispatch(onChangeLoading(true));
   };
   const changeOption = () => {
     dispatch(onChangeOption(item));

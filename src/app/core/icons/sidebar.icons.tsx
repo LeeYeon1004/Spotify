@@ -107,7 +107,7 @@ export const CreateIcon = () => (
     ></path>
   </svg>
 );
-export const HeartIcon = () => (
+export const LikedIcon = () => (
   <svg
     role="img"
     height="16"

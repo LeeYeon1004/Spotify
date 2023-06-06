@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Song } from "../../api/api";
 import { PlayIcon } from "../../core/icons/playing.icons";
-import { Audios as AudiosInterface } from "../../core/models/home.interface";
+import { Audios } from "../../core/models/home.interface";
 import "./queue.style.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { onChangeSong } from "../../redux-toolkit/slices/songSlice";
@@ -15,8 +15,8 @@ function Queue() {
   const audioCurrent = useSelector((state: RootState) => state.song.songItem);
   const shuffle = useSelector((state: RootState) => state.shuffle.shuffle);
   const isPlaying = useSelector((state: any) => state.played.played);
-  const [nowplaying, setNowplaying] = useState<AudiosInterface>(audioCurrent);
-  const [nextSong, setNextSong] = useState<AudiosInterface>(Song[1]);
+  const [nowplaying, setNowplaying] = useState<Audios>(audioCurrent);
+  const [nextSong, setNextSong] = useState<Audios>(Song[1]);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -56,7 +56,6 @@ function Queue() {
                     src={nowplaying?.img}
                     alt=""
                   />
-                  {isPlaying}
                   <div
                     className={`gif-playing ${isPlaying ? "flex" : "hidden"}`}
                   >
@@ -77,8 +76,8 @@ function Queue() {
               <h3 className="flex items-center">{nowplaying?.description}</h3>
             </div>
             <div className="flex items-center justify-end mr-[32px]">
-              <span className="mr-[32px]">
-                <SetLiked />
+              <span className="mr-[32px] opacity-0">
+                <SetLiked itemSong={nowplaying} />
               </span>
               {nowplaying?.time}
             </div>
@@ -92,7 +91,7 @@ function Queue() {
               {shuffle === true ? "" : nextSong.title}
             </p>
           </h3>
-          {Song?.map((item, index) => (
+          {Song?.map((item: Audios, index) => (
             <div
               key={index}
               className="group flex items-center hover:bg-[#ffffff1a] text-[#fff] rounded-[4px]"
@@ -121,7 +120,7 @@ function Queue() {
               </div>
               <div className="flex items-center justify-end mr-[32px] relative">
                 <span className="opacity-0 group-hover:opacity-100 mr-[32px]">
-                  <SetLiked />
+                  <SetLiked itemSong={item} />
                 </span>
                 {item.time}
               </div>

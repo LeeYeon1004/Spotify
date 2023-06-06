@@ -10,7 +10,7 @@ import {
 
 import "./sidebar.style.scss";
 import { CreateIcon } from "../../icons/sidebar.icons";
-import { LikeIcon } from "../../icons/playing.icons";
+import { DisLikedIcon } from "../../icons/playing.icons";
 
 function Sidebar() {
   const location = useLocation();
@@ -82,10 +82,16 @@ function Sidebar() {
                 }`}
               >
                 <div className="liked-icon">
-                  <LikeIcon />
+                  <DisLikedIcon />
                 </div>
                 <div>
-                  <p className="text-[14px] font-semibold">Liked Songs</p>
+                  <p
+                    className={`text-[16px] font-medium ${
+                      location.pathname === "/playlist" ? "text-[#1ed760]" : ""
+                    }`}
+                  >
+                    Liked Songs
+                  </p>
                   <p className="text-[12px] text-[#a7a7a7]">
                     Playlist: 1 songs
                   </p>
