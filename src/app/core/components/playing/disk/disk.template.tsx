@@ -1,20 +1,20 @@
-import { useState } from "react";
-import { LikedIcon, DisLikedIcon, PicInPic } from "../../../icons/playing.icons";
+import {
+  PicInPic,
+} from "../../../icons/playing.icons";
 import Tooltip from "../../tooltip/tooltip.template";
 import { useDispatch, useSelector } from "react-redux";
 import "./disk.style.scss";
 import { Link } from "react-router-dom";
 import { onChangeOption } from "../../../../redux-toolkit/slices/songDetailSlice";
+import SetLiked from "../../set-like/setLike.template";
 
 function Disk() {
-  const [liked, setLiked] = useState<boolean>(false);
-  const song = useSelector((state: any) => state.song.songItem);
+  const audioCurrent = useSelector((state: any) => state.song.songItem);
   const isPlaying = useSelector((state: any) => state.played.played);
   const dispatch = useDispatch();
 
-  const handleLiked = () => setLiked(!liked);
   const changeOption = () => {
-    dispatch(onChangeOption(song));
+    dispatch(onChangeOption(audioCurrent));
   };
 
   return (
@@ -22,24 +22,24 @@ function Disk() {
       <div className="rounded-[4px] overflow-hidden">
         <img
           className={isPlaying ? `playing` : `w-[56px] h-[56px]`}
-          src={song.img}
+          src={audioCurrent.img}
           alt=""
         />
       </div>
-      <Link to={`/song-detail/${song.title}`} onClick={changeOption}>
+      <Link to={`/song-detail/${audioCurrent.title}`} onClick={changeOption}>
         <div className="mx-[14px]">
           <h3 className="title text-[#fff] whitespace-nowrap text-[13px] cursor-pointer hover:underline">
-            {song.title}
+            {audioCurrent.title}
           </h3>
           <p className="text-[#b3b3b3] text-[10px] cursor-pointer hover:underline">
-            {song.singer}
+            {audioCurrent.singer}
           </p>
         </div>
       </Link>
       <div className="flex items-center">
-        <div onClick={handleLiked} className="text-[#ffffffb3]">
+        <div className="text-[#ffffffb3]">
           <div className="group relative w-[32px] h-[32px] flex justify-center items-center">
-            {liked ? <LikedIcon /> : <DisLikedIcon />}
+            <SetLiked itemSong={audioCurrent} />
             <div className="hidden group-hover:flex">
               <Tooltip descriptions="Save to Your library" />
             </div>

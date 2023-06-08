@@ -32,10 +32,10 @@ function Header() {
       }`}
     >
       <div className="flex items-center gap-[16px]">
-        <button className="relative bg-[#000000b3] rounded-[50%] p-[4px] opacity-70">
+        <button className="cursor-not-allowed relative bg-[#000000b3] rounded-[50%] p-[4px] opacity-70">
           <BackIcon />
         </button>
-        <button className="relative bg-[#000000b3]  rounded-[50%] p-[4px] opacity-70">
+        <button className="cursor-not-allowed relative bg-[#000000b3]  rounded-[50%] p-[4px] opacity-70">
           <NextIcon />
         </button>
       </div>
@@ -44,7 +44,7 @@ function Header() {
           <InstallIcon />
           <p className="ml-[16px]">Install App</p>
         </div>
-        <button className="user-btn px-[4px] bg-[#000000b3] flex items-center gap-[8px] hover:bg-[#282828]">
+        <button className="cursor-not-allowed user-btn px-[4px] bg-[#000000b3] flex items-center gap-[8px] hover:bg-[#282828]">
           <div className="bg-[#535353] p-[6px] rounded-[50%]">
             <UserAccIcon />
           </div>

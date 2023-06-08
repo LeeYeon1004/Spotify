@@ -34,6 +34,7 @@
     grid-template-columns: [index] 16px [first] 4fr [var1] 2fr [last];
     grid-gap: 16px;
     display: grid;
+    width: 100%;
     // padding: 4px 16px;
   }
   .head-table {

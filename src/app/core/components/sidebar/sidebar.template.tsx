@@ -11,9 +11,14 @@ import {
 import "./sidebar.style.scss";
 import { CreateIcon } from "../../icons/sidebar.icons";
 import { DisLikedIcon } from "../../icons/playing.icons";
+import { RootState } from "../../../redux-toolkit/store";
+import { useSelector } from "react-redux";
 
 function Sidebar() {
   const location = useLocation();
+  const likedSong = useSelector(
+    (state: RootState) => state.likedSlice.LikedPlaylistSong
+  );
 
   return (
     <div className="sidebar max-w-[300px] w-full max-h-screen h-full fixed z-[2] bg-black">
@@ -54,23 +59,23 @@ function Sidebar() {
                 </div>
               </div>
               <div className="flex items-center gap-[8px]">
-                <div className="opacity-70 rounded-[50%] p-[8px] cursor-pointer hover:opacity-100 hover:bg-[#1a1a1a] transition-all">
+                <div className="cursor-not-allowed opacity-70 rounded-[50%] p-[8px] hover:opacity-100 hover:bg-[#1a1a1a] transition-all">
                   <CreateIcon />
                 </div>
-                <div className="opacity-70 rounded-[50%] p-[8px] cursor-pointer hover:opacity-100 hover:bg-[#1a1a1a] transition-all">
+                <div className="cursor-not-allowed opacity-70 rounded-[50%] p-[8px] hover:opacity-100 hover:bg-[#1a1a1a] transition-all">
                   <Enlarge />
                 </div>
               </div>
             </div>
             <Link to={`/playlist`}>
-              <div className="text-[#fff] text-[13px] font-medium rounded-[32px] pt-[20px] pb-[12px]">
+              <div className="cursor-default text-[#fff] text-[13px] font-medium rounded-[32px] pt-[20px] pb-[12px]">
                 <p className="bg-[#ffffff12] rounded-[32px] w-fit py-[6px] px-[14px]">
                   Playlists
                 </p>
               </div>
             </Link>
             <div className="mb-[12px] ">
-              <div className="w-fit opacity-70 hover:bg-[#ffffff12] cursor-pointer px-[8px] py-[8px] rounded-[50%]">
+              <div className="cursor-not-allowed w-fit opacity-70 hover:bg-[#ffffff12] px-[8px] py-[8px] rounded-[50%]">
                 <SearchIcon height={17} width={17} />
               </div>
             </div>
@@ -93,7 +98,7 @@ function Sidebar() {
                     Liked Songs
                   </p>
                   <p className="text-[12px] text-[#a7a7a7]">
-                    Playlist: 1 songs
+                    Playlist: {likedSong.length} songs
                   </p>
                 </div>
               </div>
