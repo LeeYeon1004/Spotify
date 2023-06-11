@@ -39,10 +39,10 @@ function Header() {
           <NextIcon />
         </button>
       </div>
-      <div className="flex items-center gap-[32px] font-bold leading-[32px]">
-        <div className="install flex items-center px-[24px] py-[8px] text-[#fff]">
+      <div className="flex items-center gap-[16px] font-bold leading-[32px]">
+        <div className="install flex items-center px-[16px] text-[#fff] bg-[#000000b3] rounded-[92px]">
           <InstallIcon />
-          <p className="ml-[16px]">Install App</p>
+          <p className="ml-[8px]">Install App</p>
         </div>
         <button className="cursor-not-allowed user-btn px-[4px] bg-[#000000b3] flex items-center gap-[8px] hover:bg-[#282828]">
           <div className="bg-[#535353] p-[6px] rounded-[50%]">
