@@ -5,6 +5,7 @@ import loadingReducer from "./slices/loadingSlice";
 import shuffleSlice from "./slices/shuffleSlice";
 import songDetailSlice from "./slices/songDetailSlice";
 import likedSlice from "./slices/likedPlaylistSlice";
+import searchSlice from "./slices/searchSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     shuffle: shuffleSlice,
     songDetail: songDetailSlice,
     likedSlice: likedSlice,
+    searchSlice: searchSlice,
   },
 });
 

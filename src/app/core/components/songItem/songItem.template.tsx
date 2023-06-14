@@ -1,12 +1,12 @@
 import { useDispatch } from "react-redux";
-import { PlayIcon } from "../../../icons/home.icons";
-import { Audios } from "../../../models/home.interface";
-import "./item.style.scss";
-import { onChangeSong } from "../../../../redux-toolkit/slices/songSlice";
+import { PlayIcon } from "../../icons/home.icons";
+import { Audios } from "../../models/home.interface";
+import "./songItem.style.scss";
+import { onChangeSong } from "../../../redux-toolkit/slices/songSlice";
 import { Link } from "react-router-dom";
-import { onChangeOption } from "../../../../redux-toolkit/slices/songDetailSlice";
-import { onChangeStatus } from "../../../../redux-toolkit/slices/playingSlice";
-import { onChangeLoading } from "../../../../redux-toolkit/slices/loadingSlice";
+import { onChangeOption } from "../../../redux-toolkit/slices/songDetailSlice";
+import { onChangeStatus } from "../../../redux-toolkit/slices/playingSlice";
+import { onChangeLoading } from "../../../redux-toolkit/slices/loadingSlice";
 
 function Item({ item }: { item: Audios }) {
   const dispatch = useDispatch();

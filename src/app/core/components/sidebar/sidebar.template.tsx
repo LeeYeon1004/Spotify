@@ -10,7 +10,7 @@ import {
 
 import "./sidebar.style.scss";
 import { CreateIcon } from "../../icons/sidebar.icons";
-import { DisLikedIcon } from "../../icons/playing.icons";
+import { DisLikedIcon, SpickerIcon } from "../../icons/playing.icons";
 import { RootState } from "../../../redux-toolkit/store";
 import { useSelector } from "react-redux";
 
@@ -19,6 +19,7 @@ function Sidebar() {
   const likedSong = useSelector(
     (state: RootState) => state.likedSlice.LikedPlaylistSong
   );
+  const isPlaying = useSelector((state: any) => state.played.played);
 
   return (
     <div className="sidebar max-w-[300px] w-full max-h-screen h-full fixed z-[2] bg-black">
@@ -89,17 +90,31 @@ function Sidebar() {
                 <div className="liked-icon">
                   <DisLikedIcon />
                 </div>
-                <div>
-                  <p
-                    className={`text-[16px] font-medium ${
-                      location.pathname === "/playlist" ? "text-[#1ed760]" : ""
+                <div className="flex items-center justify-between flex-1">
+                  <div>
+                    <p
+                      className={`text-[16px] font-medium ${
+                        location.pathname === "/playlist"
+                          ? "text-[#1ed760]"
+                          : ""
+                      }`}
+                    >
+                      Liked Songs
+                    </p>
+                    <p className="text-[12px] text-[#a7a7a7]">
+                      Playlist: {likedSong.length} songs
+                    </p>
+                  </div>
+                  <div
+                    className={`text-[#1ed760] ${
+                      isPlaying && location.pathname === "/playlist"
+                        ? "opacity-100"
+                        : "opacity-0"
                     }`}
                   >
-                    Liked Songs
-                  </p>
-                  <p className="text-[12px] text-[#a7a7a7]">
-                    Playlist: {likedSong.length} songs
-                  </p>
+                    <SpickerIcon />
+                  </div>
+                  <div></div>
                 </div>
               </div>
             </Link>

@@ -1,11 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LikePlaylist from "../../assets/img/like-playlist.png";
 import { PlayIcon } from "../../core/icons/home.icons";
-import { PlayIcon as PlayIconQueue } from "../../core/icons/playing.icons";
+import {
+  PauseIcon,
+  PlayIcon as PlayIconQueue,
+} from "../../core/icons/playing.icons";
 import "./playList.style.scss";
 import {
   faClockRotateLeft,
-  faEllipsis,
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux-toolkit/store";
@@ -51,12 +53,23 @@ function PlayList() {
       <span className="modal-playlist2"></span>
       <div className="relative z-10 text-[#fff] px-[24px]">
         <div className="py-[24px]">
-          <div
-            className="bg-[#1ed760] text-[#000] w-[56px] h-[56px] flex items-center justify-center rounded-[100%] p-[12px] cursor-default
+          {isPlaying ? (
+            <div
+              className="bg-[#1ed760] text-[#000] w-[56px] h-[56px] flex items-center justify-center rounded-[100%] p-[12px] hover:scale-[1.05] cursor-pointer
             "
-          >
-            <PlayIcon />
-          </div>
+              onClick={() => dispatch(onChangeStatus(false))}
+            >
+              <PauseIcon />
+            </div>
+          ) : (
+            <div
+              className="bg-[#1ed760] text-[#000] w-[56px] h-[56px] flex items-center justify-center rounded-[100%] p-[12px] hover:scale-[1.05] cursor-pointer
+            "
+              onClick={() => dispatch(onChangeStatus(true))}
+            >
+              <PlayIcon />
+            </div>
+          )}
         </div>
         <div className="text-[#b3b3b3] text-[14px]">
           <div className="head-table flex items-center px-[16px] py-[4px]">
@@ -75,7 +88,10 @@ function PlayList() {
                 key={index}
                 className="flex items-center body-table group/body hover:bg-[#ffffff1a]"
               >
-                <div className="song-item px-[16px] py-[4px]" onClick={() => handlePlay(item)}>
+                <div
+                  className="song-item px-[16px] py-[4px]"
+                  onClick={() => handlePlay(item)}
+                >
                   <p className="flex items-center relative">
                     <span
                       className={`absolute opacity-0 group-hover/body:text-[#fff] group-hover/body:opacity-100 ${
@@ -116,7 +132,15 @@ function PlayList() {
                       </div>
                     </div>
                     <div className="flex flex-col justify-center ml-[16px]">
-                      <h2 className="text-[16px] text-[#fff]">{item.title}</h2>
+                      <h2
+                        className={`text-[16px] ${
+                          audioCurrent === item
+                            ? "text-[#1ed760]"
+                            : "text-[#fff]"
+                        }`}
+                      >
+                        {item.title}
+                      </h2>
                       <h3 className="hover:underline cursor-pointer">
                         {item.singer}
                       </h3>
@@ -127,9 +151,9 @@ function PlayList() {
                 <div className="flex items-center justify-self-end gap-[16px] min-w-[120px]">
                   <SetLiked itemSong={item} />
                   03:00
-                  <span className="opacity-0 group-hover/body:opacity-100 text-[20px] text-[#fff]">
+                  {/* <span className="opacity-0 group-hover/body:opacity-100 text-[20px] text-[#fff]">
                     <FontAwesomeIcon icon={faEllipsis} />
-                  </span>
+                  </span> */}
                 </div>
               </div>
             ))}

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Item from "../item/item.template";
+import Item from "../../songItem/songItem.template";
 import { Song } from "../../../../api/api";
 
 function Section({title}: {title: string}) {
